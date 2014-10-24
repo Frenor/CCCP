@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{645e23ad-2574-4e98-84b7-0e8a1abffbdb}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{cd0d833a-4edb-46af-bea3-aa7c3100ea29}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{f57542fe-bedf-4020-a2e0-d4baf518993d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{b0a762fe-77be-4dd6-98f5-7ac967f8430d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewController">
+      <UniqueIdentifier>{a17de436-2a4d-4c0b-ac0e-0b0891331de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewController">
+      <UniqueIdentifier>{9e622066-7365-43ef-a3a4-d1a1ea29ac0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{4a7f6b19-5bbf-4726-81f2-c0082826d918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{37c7d48c-693a-418c-b9a4-8deb43f8a0be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{b9b9eee8-4891-40f6-a558-f786d8fdf3c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DO">
+      <UniqueIdentifier>{6b72f667-9709-40fc-a1ca-11c9aa81129f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DO">
+      <UniqueIdentifier>{d66dfd9e-4fba-49aa-a530-2470a632e5cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewController\DrawWidget">
+      <UniqueIdentifier>{4dc189f2-eb01-43a9-952e-17f0e9f8834d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewController\DrawWidget">
+      <UniqueIdentifier>{6db87d76-99b4-4e5e-b6d8-fe80dd9ff1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewController\ContextMenus">
+      <UniqueIdentifier>{befbd1b0-1706-477e-be53-e1c6f17219ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewController\ContextMenus">
+      <UniqueIdentifier>{053a044f-e9a9-428a-af53-5db43a274c5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewController\ResultWidget">
+      <UniqueIdentifier>{21b173f5-7c44-474f-bf40-8cf023b513ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewController\ResultWidget">
+      <UniqueIdentifier>{c7dc6278-e876-4a72-8470-7072695e2af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewController\Dialogs">
+      <UniqueIdentifier>{0f4ffb43-168a-44b6-ba83-20b3f5554cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewController\Dialogs">
+      <UniqueIdentifier>{2169381d-081f-483d-a1ce-2c65bced01d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{e271ce86-7146-4536-9995-8e95e74acf9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_mainwindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_mainwindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Element.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="MSHParser.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="CModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortcutManager.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="VTKControlledSeedWidget.cpp">
+      <Filter>Source Files\ViewController\DrawWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Files\ViewController</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Entity.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Entity.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityCircle.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityCircle.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityCircle.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityPoly.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityPoly.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityPoly.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="GeoExport.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractExport.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeDrawModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TreeDrawModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TreeDrawModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeItem.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MSHParser.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MSHParser.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="BREPFactory.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityBRep.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityBRep.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityBRep.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityOperation.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityOperation.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityOperation.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsView.cpp">
+      <Filter>Source Files\ViewController</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GraphicsView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GraphicsView.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GraphicController.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GraphicController.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="VTKParser.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_LeftWidgetResult.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_LeftWidgetResult.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftWidgetResult.cpp">
+      <Filter>Source Files\ViewController\ResultWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_LeftWidgetPaint.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_LeftWidgetPaint.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftWidgetPaint.cpp">
+      <Filter>Source Files\ViewController\DrawWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ResultModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ResultModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityTreeMenu.cpp">
+      <Filter>Source Files\ViewController\ContextMenus</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityTreeMenu.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityTreeMenu.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityDialog.cpp">
+      <Filter>Source Files\ViewController\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ExternalProcessHandler.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ExternalProcessHandler.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalProcessHandler.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Mesh.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Mesh.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawViewMenu.cpp">
+      <Filter>Source Files\ViewController\ContextMenus</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DrawViewMenu.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DrawViewMenu.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DrawModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DrawModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawModel.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DrawController.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DrawController.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawController.cpp">
+      <Filter>Source Files\ViewController\DrawWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ResultController.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ResultController.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultController.cpp">
+      <Filter>Source Files\ViewController\ResultWidget</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainwindow.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_mainwindow.h">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainwindow.h">
+      <Filter>Header Files\ViewController</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Entity.h">
+      <Filter>Header Files\DO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CModel.h">
+      <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Node.h">
+      <Filter>Header Files\DO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityCircle.h">
+      <Filter>Header Files\DO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityPoly.h">
+      <Filter>Header Files\DO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TreeDrawModel.h">
+      <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TreeItem.h">
+      <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MSHParser.h">
+      <Filter>Header Files\IO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityBRep.h">
+      <Filter>Header Files\DO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityOperation.h">
+      <Filter>Header Files\Utilities</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GraphicsView.h">
+      <Filter>Header Files\ViewController</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GraphicController.h">
+      <Filter>Header Files\ViewController</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LeftWidgetResult.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LeftWidgetResult.h">
+      <Filter>Header Files\ViewController\ResultWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LeftWidgetPaint.h">
+      <Filter>Header Files\ViewController\DrawWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LeftWidgetPaint.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ResultModel.h">
+      <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityTreeMenu.h">
+      <Filter>Header Files\ViewController\ContextMenus</Filter>
+    </CustomBuild>
+    <CustomBuild Include="entityDialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityDialog.h">
+      <Filter>Header Files\ViewController\Dialogs</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ExternalProcessHandler.h">
+      <Filter>Header Files\Utilities</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Mesh.h">
+      <Filter>Header Files\DO</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DrawViewMenu.h">
+      <Filter>Header Files\ViewController\ContextMenus</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DrawModel.h">
+      <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DrawModel.h">
+      <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DrawController.h">
+      <Filter>Header Files\ViewController\DrawWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ResultController.h">
+      <Filter>Header Files\ViewController\ResultWidget</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Element.h">
+      <Filter>Header Files\DO</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortcutManager.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="VTKControlledSeedWidget.h">
+      <Filter>Header Files\ViewController\DrawWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\DO</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractExport.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="GeoExport.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BREPFactory.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="VTKParser.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_LeftWidgetResult.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_LeftWidgetPaint.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_entityDialog.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

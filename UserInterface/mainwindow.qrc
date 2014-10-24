@@ -1,0 +1,22 @@
+<RCC>
+  <qresource>
+    <file alias="branch-closed.png">images/branch-closed.png</file>
+    <file alias="branch-end.png">images/branch-end.png</file>
+    <file alias="branch-more.png">images/branch-more.png</file>
+    <file alias="branch-open.png">images/branch-open.png</file>
+    <file alias="vline.png">images/vline.png</file>
+  </qresource>
+  <qresource prefix="menu_draw">
+    <file>images/redo-m.png</file>
+    <file>images/accept.png</file>
+    <file>images/next-m.png</file>
+    <file>images/circle-m.png</file>
+    <file>images/polygon-m.png</file>
+    <file>images/delete.png</file>
+  </qresource>
+  <qresource prefix="menu_tabs">
+    <file>images/mesh-m.png</file>
+    <file>images/result-m.png</file>
+    <file>images/pencil.png</file>
+  </qresource>
+</RCC>
