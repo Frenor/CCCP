@@ -173,7 +173,19 @@ void MainWindow::setResultVisible(bool visible)
 	cModel->resultModel->setResultVisible(visible);
 	emit resultVisible(visible);
 }
-void MainWindow::setDrawTypeThin()
+void MainWindow::setDrawTypeThin(bool enable)
 {
-	cModel->
+	if (enable)
+	{
+		cModel->drawModel->setDrawType(DrawModel::THINWALLED);
+		emit drawTypeThin();
+	}
+}
+void MainWindow::setDrawTypeFilled(bool enable)
+{
+	if (enable)
+	{
+		cModel->drawModel->setDrawType(DrawModel::FILLED);
+		emit drawTypeThin();
+	}
 }

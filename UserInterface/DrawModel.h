@@ -26,6 +26,9 @@ class TEST_LIB DrawModel : public QObject
 {
 	Q_OBJECT
 public:
+	static const int THINWALLED = 1;
+	static const int FILLED = 2;
+
 	explicit DrawModel(QObject *parent);
 	~DrawModel() { std::cout << "DELETED: DrawModel" << std::endl; }
 
@@ -122,16 +125,29 @@ public slots:
 	*/
 	void showProperties(Entity*);
 
+	/*!
+		Sets the drawing type to the given input value
+	*/
+	void setDrawType(int);
+
+	/*!
+		\return integer representing the active draw type
+	*/
+	int getActiveDrawType();
+
 signals:
 	void entityCreated(Entity*);		//!< Emitted when a entity is created and added to the model
 	void entityChanged(Entity*);		//!< Emitted when a entity in the model is changed
 	void entityDeleted(Entity*);		//!< Emitted when a entity in the model is removed
 	void activeEntityChanged(Entity*);	//!< Emitted when the active/selected entity is changed
+	void drawTypeChanged(int);			//!< Emitted when the drawing type is changed
 
 private:
 	/*!
 		Function loops through the list of entities assigning each entity a number given its place in the list.
 		The level is used inside the entity, before it is drawn, when its actor's position is calculated.
 	*/
-	void updateEntityLevels();	
+	void updateEntityLevels();
+	int activeType;						//!< Active drawing type
+
 };

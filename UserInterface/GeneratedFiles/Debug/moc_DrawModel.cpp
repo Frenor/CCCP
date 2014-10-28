@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_DrawModel_t {
-    QByteArrayData data[15];
-    char stringdata[219];
+    QByteArrayData data[18];
+    char stringdata[265];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,21 +36,26 @@ QT_MOC_LITERAL(3, 25, 7),
 QT_MOC_LITERAL(4, 33, 13),
 QT_MOC_LITERAL(5, 47, 13),
 QT_MOC_LITERAL(6, 61, 19),
-QT_MOC_LITERAL(7, 81, 13),
-QT_MOC_LITERAL(8, 95, 16),
-QT_MOC_LITERAL(9, 112, 20),
-QT_MOC_LITERAL(10, 133, 19),
-QT_MOC_LITERAL(11, 153, 22),
-QT_MOC_LITERAL(12, 176, 16),
-QT_MOC_LITERAL(13, 193, 10),
-QT_MOC_LITERAL(14, 204, 14)
+QT_MOC_LITERAL(7, 81, 15),
+QT_MOC_LITERAL(8, 97, 13),
+QT_MOC_LITERAL(9, 111, 16),
+QT_MOC_LITERAL(10, 128, 20),
+QT_MOC_LITERAL(11, 149, 19),
+QT_MOC_LITERAL(12, 169, 22),
+QT_MOC_LITERAL(13, 192, 16),
+QT_MOC_LITERAL(14, 209, 10),
+QT_MOC_LITERAL(15, 220, 14),
+QT_MOC_LITERAL(16, 235, 11),
+QT_MOC_LITERAL(17, 247, 17)
     },
     "DrawModel\0entityCreated\0\0Entity*\0"
     "entityChanged\0entityDeleted\0"
-    "activeEntityChanged\0uiModeChanged\0"
-    "setEntityChanged\0finalizeActiveEntity\0"
-    "setActiveEntityNULL\0executeEntityOperation\0"
-    "EntityOperation*\0eOperation\0showProperties"
+    "activeEntityChanged\0drawTypeChanged\0"
+    "uiModeChanged\0setEntityChanged\0"
+    "finalizeActiveEntity\0setActiveEntityNULL\0"
+    "executeEntityOperation\0EntityOperation*\0"
+    "eOperation\0showProperties\0setDrawType\0"
+    "getActiveDrawType"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,40 +65,46 @@ static const uint qt_meta_data_DrawModel[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       4,       // signalCount
+       5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   64,    2, 0x06 /* Public */,
-       4,    1,   67,    2, 0x06 /* Public */,
-       5,    1,   70,    2, 0x06 /* Public */,
-       6,    1,   73,    2, 0x06 /* Public */,
+       1,    1,   79,    2, 0x06 /* Public */,
+       4,    1,   82,    2, 0x06 /* Public */,
+       5,    1,   85,    2, 0x06 /* Public */,
+       6,    1,   88,    2, 0x06 /* Public */,
+       7,    1,   91,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   76,    2, 0x0a /* Public */,
-       8,    1,   77,    2, 0x0a /* Public */,
-       9,    0,   80,    2, 0x0a /* Public */,
-      10,    0,   81,    2, 0x0a /* Public */,
-      11,    1,   82,    2, 0x0a /* Public */,
-      14,    1,   85,    2, 0x0a /* Public */,
+       8,    0,   94,    2, 0x0a /* Public */,
+       9,    1,   95,    2, 0x0a /* Public */,
+      10,    0,   98,    2, 0x0a /* Public */,
+      11,    0,   99,    2, 0x0a /* Public */,
+      12,    1,  100,    2, 0x0a /* Public */,
+      15,    1,  103,    2, 0x0a /* Public */,
+      16,    1,  106,    2, 0x0a /* Public */,
+      17,    0,  109,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void, 0x80000000 | 3,    2,
+    QMetaType::Void, QMetaType::Int,    2,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 12,   13,
+    QMetaType::Void, 0x80000000 | 13,   14,
     QMetaType::Void, 0x80000000 | 3,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Int,
 
        0        // eod
 };
@@ -107,12 +118,16 @@ void DrawModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 1: _t->entityChanged((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
         case 2: _t->entityDeleted((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
         case 3: _t->activeEntityChanged((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
-        case 4: _t->uiModeChanged(); break;
-        case 5: _t->setEntityChanged((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
-        case 6: _t->finalizeActiveEntity(); break;
-        case 7: _t->setActiveEntityNULL(); break;
-        case 8: _t->executeEntityOperation((*reinterpret_cast< EntityOperation*(*)>(_a[1]))); break;
-        case 9: _t->showProperties((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
+        case 4: _t->drawTypeChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: _t->uiModeChanged(); break;
+        case 6: _t->setEntityChanged((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
+        case 7: _t->finalizeActiveEntity(); break;
+        case 8: _t->setActiveEntityNULL(); break;
+        case 9: _t->executeEntityOperation((*reinterpret_cast< EntityOperation*(*)>(_a[1]))); break;
+        case 10: _t->showProperties((*reinterpret_cast< Entity*(*)>(_a[1]))); break;
+        case 11: _t->setDrawType((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: { int _r = _t->getActiveDrawType();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -146,21 +161,21 @@ void DrawModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< Entity* >(); break;
             }
             break;
-        case 5:
+        case 6:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< Entity* >(); break;
             }
             break;
-        case 8:
+        case 9:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< EntityOperation* >(); break;
             }
             break;
-        case 9:
+        case 10:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -195,6 +210,12 @@ void DrawModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
                 *result = 3;
             }
         }
+        {
+            typedef void (DrawModel::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&DrawModel::drawTypeChanged)) {
+                *result = 4;
+            }
+        }
     }
 }
 
@@ -223,13 +244,13 @@ int DrawModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 13;
     }
     return _id;
 }
@@ -260,5 +281,12 @@ void DrawModel::activeEntityChanged(Entity * _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
+}
+
+// SIGNAL 4
+void DrawModel::drawTypeChanged(int _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 4, _a);
 }
 QT_END_MOC_NAMESPACE

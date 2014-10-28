@@ -149,12 +149,12 @@ public slots:
 		Signal from "Draw Tab"
 		Sets the drawing type to thin walled mode
 	*/
-	void setDrawTypeThin();
+	void setDrawTypeThin(bool);
 	/*!
 	Signal from "Draw Tab"
 	Sets the drawing type to filled crossection mode
 	*/
-	void setDrawTypeFilled();
+	void setDrawTypeFilled(bool);
 signals:
 	/*!
 		Signal emitted when setMeshVisible is called by the UI.
@@ -164,6 +164,14 @@ signals:
 		Signal emitted when setResultVisible is called by the UI.
 	*/
 	void resultVisible(bool);
+	/*!
+		Signal emitted when setDrawTypeThin is called by the UI.
+	*/
+	void drawTypeThin();
+	/*!
+	Signal emitted when setDrawTypeFilled is called by the UI.
+	*/
+	void drawTypeFilled();
 
 private:
 	Ui::MainWindowClass ui;

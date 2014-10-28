@@ -63,6 +63,7 @@ void DrawController::setModel(DrawModel *DrawModel)
 	connect(model, &DrawModel::activeEntityChanged, this, &DrawController::setActiveEntity);
 	connect(model, &DrawModel::entityChanged, this, &DrawController::invalidate);
 	connect(model, &DrawModel::entityDeleted, this, &DrawController::reset);
+	connect(model, &DrawModel::drawTypeChanged, this, &DrawController::invalidate);
 }
 
 void DrawController::reset()
@@ -81,9 +82,13 @@ void DrawController::reset()
 void DrawController::invalidate()
 {
 	std::cout << "Invalidate" << std::endl;
+
 	gView->removeActors();
 	drawPointsAndLines(model->getAllNodes(), model->getAllEdges());
-	drawSurfaces();
+	if (model->getActiveDrawType() == DrawModel::FILLED)
+	{
+		drawSurfaces();
+	}
 
 	gView->invalidate();
 }

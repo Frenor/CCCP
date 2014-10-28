@@ -4,6 +4,7 @@ DrawModel::DrawModel(QObject *parent) : QObject(parent)
 {
 	activeEntity = NULL;
 	activeEntityFinalized = true;
+	activeType = FILLED;
 }
 
 void DrawModel::setActiveInput(Entity *entity)
@@ -168,4 +169,25 @@ void DrawModel::showProperties(Entity* entity)
 		eDialog->setDataSource(entity ? entity : activeEntity);
 		eDialog->show();
 	}
+}
+
+void DrawModel::setDrawType(int type)
+{
+	switch (type)
+	{
+	case DrawModel::THINWALLED:
+		std::cout << "Thinwalled drawing type" << std::endl;
+		break;
+	case DrawModel::FILLED:
+		std::cout << "Filled drawing type" << std::endl;
+		break;
+	default:
+		break;
+	}
+	this->activeType = type;
+	emit drawTypeChanged(type);
+}
+
+int DrawModel::getActiveDrawType() {
+	return activeType;
 }

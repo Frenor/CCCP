@@ -146,12 +146,13 @@ public:
         drawingTypeButtonGroup->setObjectName(QStringLiteral("drawingTypeButtonGroup"));
         drawingTypeButtonGroup->addButton(Thin);
         Thin->setObjectName(QStringLiteral("Thin"));
-        Thin->setGeometry(QRect(10, 30, 82, 17));
-        Thin->setChecked(true);
+        Thin->setGeometry(QRect(10, 50, 82, 17));
+        Thin->setChecked(false);
         Filled = new QRadioButton(groupBox_7);
         drawingTypeButtonGroup->addButton(Filled);
         Filled->setObjectName(QStringLiteral("Filled"));
-        Filled->setGeometry(QRect(10, 50, 61, 17));
+        Filled->setGeometry(QRect(10, 30, 61, 17));
+        Filled->setChecked(true);
 
         horizontalLayout_4->addWidget(groupBox_7);
 
@@ -468,6 +469,8 @@ public:
         QObject::connect(MainWindowClass, SIGNAL(meshVisible(bool)), meshVisible, SLOT(setChecked(bool)));
         QObject::connect(MainWindowClass, SIGNAL(resultVisible(bool)), resultVisible, SLOT(setChecked(bool)));
         QObject::connect(pushButton, SIGNAL(clicked()), GraphicsWidget, SLOT(enterPressed()));
+        QObject::connect(Filled, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeFilled(bool)));
+        QObject::connect(Thin, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeThin(bool)));
 
         tabWidget->setCurrentIndex(0);
 
