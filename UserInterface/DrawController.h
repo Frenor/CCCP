@@ -3,6 +3,7 @@
 #include "GraphicController.h"
 #include "VTKControlledSeedWidget.h"
 #include "DrawViewMenu.h"
+#include "DrawModel.h"
 
 //SeedModel---
 #include "vtkSeedRepresentation.h"

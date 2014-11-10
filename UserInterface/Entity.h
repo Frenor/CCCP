@@ -75,7 +75,7 @@ public:
 		Abstract function required by all entities in order to be displayed by the GraphicView
 		Updates the PolyData and the actor.
 	*/
-	virtual void updatePolygon();
+	virtual void updatePolygon(int);
 
 	/*! 
 		Closes the entity if not already closed. 

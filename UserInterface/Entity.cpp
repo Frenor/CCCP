@@ -36,7 +36,7 @@ bool Entity::isClosed()
 	return closed;
 }
 
-void Entity::updatePolygon()
+void Entity::updatePolygon(int drawingType)
 {
 	updateActor(getPolyData());
 }

@@ -85,10 +85,7 @@ void DrawController::invalidate()
 
 	gView->removeActors();
 	drawPointsAndLines(model->getAllNodes(), model->getAllEdges());
-	if (model->getActiveDrawType() == DrawModel::FILLED)
-	{
-		drawSurfaces();
-	}
+	drawSurfaces();
 
 	gView->invalidate();
 }
@@ -148,7 +145,7 @@ void DrawController::createSurface(Entity* entity)
 {
 	if(entity->isVisible())
 	{
-		entity->updatePolygon();
+		entity->updatePolygon(model->getActiveDrawType());
 
 		if(model->isNotActiveEntity(entity))
 		{

@@ -26,8 +26,8 @@ class TEST_LIB DrawModel : public QObject
 {
 	Q_OBJECT
 public:
-	static const int THINWALLED = 1;
-	static const int FILLED = 2;
+	static const int MASSIVE = 1;
+	static const int THINWALLED = 2;
 
 	explicit DrawModel(QObject *parent);
 	~DrawModel() { std::cout << "DELETED: DrawModel" << std::endl; }

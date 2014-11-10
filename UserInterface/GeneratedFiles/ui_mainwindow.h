@@ -50,7 +50,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QGroupBox *groupBox_7;
     QRadioButton *Thin;
-    QRadioButton *Filled;
+    QRadioButton *Massive;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_2;
     QPushButton *Circle;
@@ -148,11 +148,11 @@ public:
         Thin->setObjectName(QStringLiteral("Thin"));
         Thin->setGeometry(QRect(10, 50, 82, 17));
         Thin->setChecked(false);
-        Filled = new QRadioButton(groupBox_7);
-        drawingTypeButtonGroup->addButton(Filled);
-        Filled->setObjectName(QStringLiteral("Filled"));
-        Filled->setGeometry(QRect(10, 30, 61, 17));
-        Filled->setChecked(true);
+        Massive = new QRadioButton(groupBox_7);
+        drawingTypeButtonGroup->addButton(Massive);
+        Massive->setObjectName(QStringLiteral("Massive"));
+        Massive->setGeometry(QRect(10, 30, 61, 17));
+        Massive->setChecked(true);
 
         horizontalLayout_4->addWidget(groupBox_7);
 
@@ -469,7 +469,7 @@ public:
         QObject::connect(MainWindowClass, SIGNAL(meshVisible(bool)), meshVisible, SLOT(setChecked(bool)));
         QObject::connect(MainWindowClass, SIGNAL(resultVisible(bool)), resultVisible, SLOT(setChecked(bool)));
         QObject::connect(pushButton, SIGNAL(clicked()), GraphicsWidget, SLOT(enterPressed()));
-        QObject::connect(Filled, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeFilled(bool)));
+        QObject::connect(Massive, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeMassive(bool)));
         QObject::connect(Thin, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeThin(bool)));
 
         tabWidget->setCurrentIndex(0);
@@ -485,7 +485,7 @@ public:
         actionSave->setText(QApplication::translate("MainWindowClass", "Save", 0));
         groupBox_7->setTitle(QApplication::translate("MainWindowClass", "Drawing type", 0));
         Thin->setText(QApplication::translate("MainWindowClass", "Thin walled", 0));
-        Filled->setText(QApplication::translate("MainWindowClass", "Filled", 0));
+        Massive->setText(QApplication::translate("MainWindowClass", "Massive", 0));
         groupBox_2->setTitle(QApplication::translate("MainWindowClass", "Create figures", 0));
         Circle->setText(QApplication::translate("MainWindowClass", "Circle    ", 0));
         Polygon->setText(QApplication::translate("MainWindowClass", "Polygon", 0));

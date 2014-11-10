@@ -154,7 +154,7 @@ public slots:
 	Signal from "Draw Tab"
 	Sets the drawing type to filled crossection mode
 	*/
-	void setDrawTypeFilled(bool);
+	void setDrawTypeMassive(bool);
 signals:
 	/*!
 		Signal emitted when setMeshVisible is called by the UI.
@@ -171,7 +171,7 @@ signals:
 	/*!
 	Signal emitted when setDrawTypeFilled is called by the UI.
 	*/
-	void drawTypeFilled();
+	void drawTypeMassive();
 
 private:
 	Ui::MainWindowClass ui;

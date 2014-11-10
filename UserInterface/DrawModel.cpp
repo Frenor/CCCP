@@ -4,7 +4,7 @@ DrawModel::DrawModel(QObject *parent) : QObject(parent)
 {
 	activeEntity = NULL;
 	activeEntityFinalized = true;
-	activeType = FILLED;
+	activeType = MASSIVE;
 }
 
 void DrawModel::setActiveInput(Entity *entity)
@@ -178,7 +178,7 @@ void DrawModel::setDrawType(int type)
 	case DrawModel::THINWALLED:
 		std::cout << "Thinwalled drawing type" << std::endl;
 		break;
-	case DrawModel::FILLED:
+	case DrawModel::MASSIVE:
 		std::cout << "Filled drawing type" << std::endl;
 		break;
 	default:

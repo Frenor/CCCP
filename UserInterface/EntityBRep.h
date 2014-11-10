@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "BRepFactory.h"
+#include "DrawModel.h"
 
 #include "TestLib.h"
 
@@ -39,7 +40,7 @@ public:
 		The BRep entity actor is based on polygons retrieved from the result entities. 
 		It is done this way to use one clickable actor for the whole boundary representation.
 	*/
-	void updatePolygon();
+	void updatePolygon(int);
 	/*!
 		Creates a polygon for each result entity.
 	*/
