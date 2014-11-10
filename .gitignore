@@ -23,6 +23,15 @@
 *.out
 *.app
 
+# Generated file folders
+x64/
+GeneratedFiles/
+
+# Visual Studio files
+*.opensdf
+*.sdf
+*.suo
+
 # =========================
 # Operating System Files
 # =========================
