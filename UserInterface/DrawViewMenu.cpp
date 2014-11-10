@@ -4,16 +4,24 @@ DrawViewMenu::DrawViewMenu(QWidget *view, EntityOperation* eOperation, DrawModel
 {
 	this->view = view;
 
-	connect(view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowContextMenu(const QPoint&)));
+	connect(view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showContextMenu(const QPoint&)));
 	connect(this, SIGNAL(newAction(int)), eOperation, SLOT(setEntityOperation(int)));
 	connect(this, SIGNAL(propertiesSelected(Entity*)), model, SLOT(showProperties(Entity*)));
+	connect(model, SIGNAL(drawTypeChanged(int)), this, SLOT(drawTypeChanged(int)));
+	connect(this, SIGNAL(dimensionsSelected(Entity*)), model, SLOT(showDimensions(Entity*)));
+	showDimensions = false;
 }
 
-void DrawViewMenu::ShowContextMenu(const QPoint& pos)
+void DrawViewMenu::showContextMenu(const QPoint& pos)
 {
     QPoint globalPos = view->mapToGlobal(pos);
+	
+	QMenu menu;
 
-    QMenu menu;
+	QAction *aDimensions;
+	if (showDimensions) {
+		aDimensions = menu.addAction("Dimensions");
+	}
 	QAction *aProperties = menu.addAction("Properties");
 
 	menu.addSeparator();
@@ -39,5 +47,22 @@ void DrawViewMenu::ShowContextMenu(const QPoint& pos)
 		{
 			emit propertiesSelected(NULL);
 		}
-    }
+		if (selectedItem == aDimensions)
+		{
+			emit dimensionsSelected(NULL);
+		}
+	}
+}
+
+void DrawViewMenu::drawTypeChanged(int type)
+{
+	switch (type)
+	{
+	case DrawModel::THINWALLED:
+		showDimensions = true;
+		break;
+	default:
+		showDimensions = false;
+		break;
+	}
 }

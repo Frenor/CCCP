@@ -1,3 +1,5 @@
+#include "Node.h"
+
 #ifndef EDGE_OBJECT
 #define EDGE_OBJECT
 
@@ -8,13 +10,13 @@ public:
 	Node *n1;	//!< Node 1 in edge
 	Node *n2;	//!< Node 2 in edge
 
-	Edge(Node* node1, Node *node2)
-	{
-		this->n1 = node1;
-		this->n2 = node2;
-	}
+	double width1, width2; //!< Edge width at node 1
+
+	Edge(Node*, Node*);
 	
-	~Edge(){  std::cout << "Edge deleted" << std::endl; }
+	~Edge();
+
+	void setWidth(double, double);
 };
 
 #endif

@@ -4,7 +4,7 @@ DrawModel::DrawModel(QObject *parent) : QObject(parent)
 {
 	activeEntity = NULL;
 	activeEntityFinalized = true;
-	activeType = FILLED;
+	activeType = MASSIVE;
 }
 
 void DrawModel::setActiveInput(Entity *entity)
@@ -171,6 +171,16 @@ void DrawModel::showProperties(Entity* entity)
 	}
 }
 
+void DrawModel::showDimensions(Entity* entity)
+{
+	if (entity || activeEntity)
+	{
+		//DimensionDialog *dDialog = new DimensionDialog;
+		//dDialog->setDataSource(entity ? entity : activeEntity);
+		//dDialog->show();
+	}
+}
+
 void DrawModel::setDrawType(int type)
 {
 	switch (type)
@@ -178,8 +188,8 @@ void DrawModel::setDrawType(int type)
 	case DrawModel::THINWALLED:
 		std::cout << "Thinwalled drawing type" << std::endl;
 		break;
-	case DrawModel::FILLED:
-		std::cout << "Filled drawing type" << std::endl;
+	case DrawModel::MASSIVE:
+		std::cout << "Massive drawing type" << std::endl;
 		break;
 	default:
 		break;

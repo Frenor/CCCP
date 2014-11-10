@@ -15,6 +15,7 @@
 
 #include "Node.h"
 #include "Edge.h"
+#include "DrawModel.h"
 
 #include "TestLib.h"
 
@@ -74,8 +75,9 @@ public:
 	/*!
 		Abstract function required by all entities in order to be displayed by the GraphicView
 		Updates the PolyData and the actor.
+		Takes in a drawing type to draw walls properly when thin walled.
 	*/
-	virtual void updatePolygon();
+	virtual void updatePolygon(int drawingType);
 
 	/*! 
 		Closes the entity if not already closed. 
@@ -201,6 +203,7 @@ protected:
 	Node *lastSelectedNode;		//!<Last added node. Used to keep track of nodes when drawing lines in polygon
 	
 	vtkSmartPointer<vtkPolyData> getPolyData();
+	vtkSmartPointer<vtkPolyData> getPolyDataWalled(); //!< Used to create "walled" drawings for the thin walled drawing mode
 	void updateActor(vtkSmartPointer<vtkPolyData>);
 
 	void deleteNodes();
@@ -213,4 +216,5 @@ protected:
 	vtkSmartPointer<vtkActor> actor;
 	std::vector<vtkSmartPointer<vtkActor>> holeActors;
 	vtkSmartPointer<vtkPoints> points;
+	std::vector<vtkSmartPointer<vtkActor>> edgeActors;
 };

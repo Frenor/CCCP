@@ -94,7 +94,7 @@ void EntityBRep::updateHoleActors()
 	holeActors.clear();
 	for each (Entity* entity in resultHoleEntities)
 	{
-		entity->updatePolygon();
+		entity->updatePolygon(DrawModel::MASSIVE);		// Not supported by thin walled at the time 
 		entity->setLevel(this->level);
 		vtkSmartPointer<vtkActor> holeActor = entity->getZLeveledActor(0.01);
 		holeActors.push_back(holeActor);

@@ -85,10 +85,7 @@ void DrawController::invalidate()
 
 	gView->removeActors();
 	drawPointsAndLines(model->getAllNodes(), model->getAllEdges());
-	if (model->getActiveDrawType() == DrawModel::FILLED)
-	{
-		drawSurfaces();
-	}
+	drawSurfaces();
 
 	gView->invalidate();
 }
@@ -146,9 +143,24 @@ void DrawController::drawSurfaces()
 
 void DrawController::createSurface(Entity* entity)
 {
+	switch (model->getActiveDrawType())
+	{
+	case DrawModel::MASSIVE:
+		createMassiveSurface(entity);
+		break;
+	case DrawModel::THINWALLED:
+		createThinSurface(entity);
+		break;
+	default:
+		break;
+	}
+}
+
+void DrawController::createMassiveSurface(Entity* entity)
+{
 	if(entity->isVisible())
 	{
-		entity->updatePolygon();
+		entity->updatePolygon(model->getActiveDrawType());
 
 		if(model->isNotActiveEntity(entity))
 		{
@@ -167,6 +179,12 @@ void DrawController::createSurface(Entity* entity)
 			gView->addActor(holeActor);
 		}
 	}
+}
+
+void DrawController::createThinSurface(Entity* entity)
+{
+	std::cout << "Drawing thin walls" << std::endl;
+	entity->getActor()->GetProperty()->SetOpacity(0.7);
 }
 
 void DrawController::setColorSelected(vtkSmartPointer<vtkActor> actor)

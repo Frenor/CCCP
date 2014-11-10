@@ -42,6 +42,7 @@ class Ui_MainWindowClass
 public:
     QAction *actionOpen;
     QAction *actionSave;
+    QAction *actionMaterials;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -50,7 +51,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QGroupBox *groupBox_7;
     QRadioButton *Thin;
-    QRadioButton *Filled;
+    QRadioButton *Massive;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_2;
     QPushButton *Circle;
@@ -94,6 +95,7 @@ public:
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuHelp;
+    QMenu *menuEdit;
     QStatusBar *statusBar;
     QButtonGroup *drawingTypeButtonGroup;
 
@@ -107,6 +109,8 @@ public:
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionSave = new QAction(MainWindowClass);
         actionSave->setObjectName(QStringLiteral("actionSave"));
+        actionMaterials = new QAction(MainWindowClass);
+        actionMaterials->setObjectName(QStringLiteral("actionMaterials"));
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -148,11 +152,11 @@ public:
         Thin->setObjectName(QStringLiteral("Thin"));
         Thin->setGeometry(QRect(10, 50, 82, 17));
         Thin->setChecked(false);
-        Filled = new QRadioButton(groupBox_7);
-        drawingTypeButtonGroup->addButton(Filled);
-        Filled->setObjectName(QStringLiteral("Filled"));
-        Filled->setGeometry(QRect(10, 30, 61, 17));
-        Filled->setChecked(true);
+        Massive = new QRadioButton(groupBox_7);
+        drawingTypeButtonGroup->addButton(Massive);
+        Massive->setObjectName(QStringLiteral("Massive"));
+        Massive->setGeometry(QRect(10, 30, 61, 17));
+        Massive->setChecked(true);
 
         horizontalLayout_4->addWidget(groupBox_7);
 
@@ -439,6 +443,8 @@ public:
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menuBar);
         menuHelp->setObjectName(QStringLiteral("menuHelp"));
+        menuEdit = new QMenu(menuBar);
+        menuEdit->setObjectName(QStringLiteral("menuEdit"));
         MainWindowClass->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindowClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -446,9 +452,11 @@ public:
         MainWindowClass->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());
+        menuBar->addAction(menuEdit->menuAction());
         menuBar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionOpen);
         menuFile->addAction(actionSave);
+        menuEdit->addAction(actionMaterials);
 
         retranslateUi(MainWindowClass);
         QObject::connect(actionOpen, SIGNAL(triggered()), MainWindowClass, SLOT(openFile()));
@@ -469,7 +477,7 @@ public:
         QObject::connect(MainWindowClass, SIGNAL(meshVisible(bool)), meshVisible, SLOT(setChecked(bool)));
         QObject::connect(MainWindowClass, SIGNAL(resultVisible(bool)), resultVisible, SLOT(setChecked(bool)));
         QObject::connect(pushButton, SIGNAL(clicked()), GraphicsWidget, SLOT(enterPressed()));
-        QObject::connect(Filled, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeFilled(bool)));
+        QObject::connect(Massive, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeMassive(bool)));
         QObject::connect(Thin, SIGNAL(toggled(bool)), MainWindowClass, SLOT(setDrawTypeThin(bool)));
 
         tabWidget->setCurrentIndex(0);
@@ -483,9 +491,10 @@ public:
         MainWindowClass->setWindowTitle(QApplication::translate("MainWindowClass", "Composite Crossection Calculation", 0));
         actionOpen->setText(QApplication::translate("MainWindowClass", "Open", 0));
         actionSave->setText(QApplication::translate("MainWindowClass", "Save", 0));
+        actionMaterials->setText(QApplication::translate("MainWindowClass", "Materials", 0));
         groupBox_7->setTitle(QApplication::translate("MainWindowClass", "Drawing type", 0));
         Thin->setText(QApplication::translate("MainWindowClass", "Thin walled", 0));
-        Filled->setText(QApplication::translate("MainWindowClass", "Filled", 0));
+        Massive->setText(QApplication::translate("MainWindowClass", "Massive", 0));
         groupBox_2->setTitle(QApplication::translate("MainWindowClass", "Create figures", 0));
         Circle->setText(QApplication::translate("MainWindowClass", "Circle    ", 0));
         Polygon->setText(QApplication::translate("MainWindowClass", "Polygon", 0));
@@ -513,6 +522,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(resultsTab), QApplication::translate("MainWindowClass", "Results", 0));
         menuFile->setTitle(QApplication::translate("MainWindowClass", "File", 0));
         menuHelp->setTitle(QApplication::translate("MainWindowClass", "Help", 0));
+        menuEdit->setTitle(QApplication::translate("MainWindowClass", "Edit", 0));
     } // retranslateUi
 
 };

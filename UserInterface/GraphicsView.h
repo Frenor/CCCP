@@ -134,4 +134,5 @@ signals:
 	void cancelEvent();		//!< Deletes active entity/unfinished entity
 	void actorClicked(vtkSmartPointer<vtkActor>);	
 	void actorDoubleClicked(vtkSmartPointer<vtkActor>);
+	void customContextMenuRequested(QPoint);
 };

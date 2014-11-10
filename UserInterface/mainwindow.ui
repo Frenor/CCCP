@@ -118,7 +118,7 @@
               <string notr="true">drawingTypeButtonGroup</string>
              </attribute>
             </widget>
-            <widget class="QRadioButton" name="Filled">
+            <widget class="QRadioButton" name="Massive">
              <property name="geometry">
               <rect>
                <x>10</x>
@@ -128,7 +128,7 @@
               </rect>
              </property>
              <property name="text">
-              <string>Filled</string>
+              <string>Massive</string>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -689,7 +689,14 @@
      <string>Help</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionMaterials"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
@@ -705,6 +712,11 @@
   <action name="actionSave">
    <property name="text">
     <string>Save</string>
+   </property>
+  </action>
+  <action name="actionMaterials">
+   <property name="text">
+    <string>Materials</string>
    </property>
   </action>
  </widget>
@@ -1025,10 +1037,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>Filled</sender>
+   <sender>Massive</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindowClass</receiver>
-   <slot>setDrawTypeFilled(bool)</slot>
+   <slot>setDrawTypeMassive(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>52</x>
@@ -1076,7 +1088,7 @@
   <slot>setMeshVisible(bool)</slot>
   <slot>setResultVisible(bool)</slot>
   <slot>setDrawTypeThin(bool)</slot>
-  <slot>setDrawTypeFilled(bool)</slot>
+  <slot>setDrawTypeMassive(bool)</slot>
  </slots>
  <buttongroups>
   <buttongroup name="drawingTypeButtonGroup"/>

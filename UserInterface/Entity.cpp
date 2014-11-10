@@ -36,9 +36,17 @@ bool Entity::isClosed()
 	return closed;
 }
 
-void Entity::updatePolygon()
+void Entity::updatePolygon(int drawingType)
 {
-	updateActor(getPolyData());
+	switch (drawingType)
+	{
+	case DrawModel::THINWALLED:
+		updateActor(getPolyDataWalled());
+		break;
+	default:
+		updateActor(getPolyData());
+		break;
+	}
 }
 
 void Entity::updateActor(vtkSmartPointer<vtkPolyData> pd)
@@ -79,6 +87,18 @@ vtkSmartPointer<vtkPolyData> Entity::getPolyData()
 	return pd;
 }
 
+vtkSmartPointer<vtkPolyData> Entity::getPolyDataWalled()
+{
+	vtkSmartPointer<vtkCellArray> poly = vtkSmartPointer<vtkCellArray>::New();
+	vtkSmartPointer<vtkPolyData> pd = vtkSmartPointer<vtkPolyData>::New();
+
+	poly->InsertNextCell(getPolygon());
+
+	pd->SetPoints(points);
+	pd->SetPolys(poly);
+
+	return pd;
+}
 vtkSmartPointer<vtkPolygon> Entity::getPolygon()
 {
 	int n = 0;

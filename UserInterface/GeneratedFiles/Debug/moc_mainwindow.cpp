@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[27];
-    char stringdata[363];
+    char stringdata[365];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,31 +34,31 @@ QT_MOC_LITERAL(1, 11, 11),
 QT_MOC_LITERAL(2, 23, 0),
 QT_MOC_LITERAL(3, 24, 13),
 QT_MOC_LITERAL(4, 38, 12),
-QT_MOC_LITERAL(5, 51, 14),
-QT_MOC_LITERAL(6, 66, 10),
-QT_MOC_LITERAL(7, 77, 9),
-QT_MOC_LITERAL(8, 87, 12),
-QT_MOC_LITERAL(9, 100, 8),
-QT_MOC_LITERAL(10, 109, 8),
-QT_MOC_LITERAL(11, 118, 7),
-QT_MOC_LITERAL(12, 126, 7),
-QT_MOC_LITERAL(13, 134, 11),
-QT_MOC_LITERAL(14, 146, 11),
-QT_MOC_LITERAL(15, 158, 13),
-QT_MOC_LITERAL(16, 172, 18),
-QT_MOC_LITERAL(17, 191, 12),
-QT_MOC_LITERAL(18, 204, 20),
-QT_MOC_LITERAL(19, 225, 17),
-QT_MOC_LITERAL(20, 243, 17),
-QT_MOC_LITERAL(21, 261, 18),
-QT_MOC_LITERAL(22, 280, 16),
-QT_MOC_LITERAL(23, 297, 14),
-QT_MOC_LITERAL(24, 312, 16),
-QT_MOC_LITERAL(25, 329, 15),
-QT_MOC_LITERAL(26, 345, 17)
+QT_MOC_LITERAL(5, 51, 15),
+QT_MOC_LITERAL(6, 67, 10),
+QT_MOC_LITERAL(7, 78, 9),
+QT_MOC_LITERAL(8, 88, 12),
+QT_MOC_LITERAL(9, 101, 8),
+QT_MOC_LITERAL(10, 110, 8),
+QT_MOC_LITERAL(11, 119, 7),
+QT_MOC_LITERAL(12, 127, 7),
+QT_MOC_LITERAL(13, 135, 11),
+QT_MOC_LITERAL(14, 147, 11),
+QT_MOC_LITERAL(15, 159, 13),
+QT_MOC_LITERAL(16, 173, 18),
+QT_MOC_LITERAL(17, 192, 12),
+QT_MOC_LITERAL(18, 205, 20),
+QT_MOC_LITERAL(19, 226, 17),
+QT_MOC_LITERAL(20, 244, 17),
+QT_MOC_LITERAL(21, 262, 18),
+QT_MOC_LITERAL(22, 281, 16),
+QT_MOC_LITERAL(23, 298, 14),
+QT_MOC_LITERAL(24, 313, 16),
+QT_MOC_LITERAL(25, 330, 15),
+QT_MOC_LITERAL(26, 346, 18)
     },
     "MainWindow\0meshVisible\0\0resultVisible\0"
-    "drawTypeThin\0drawTypeFilled\0addPolygon\0"
+    "drawTypeThin\0drawTypeMassive\0addPolygon\0"
     "addCircle\0deleteEntity\0openFile\0"
     "saveFile\0newFile\0setMode\0setDrawMode\0"
     "setMeshMode\0setResultMode\0showDrawController\0"
@@ -66,7 +66,7 @@ QT_MOC_LITERAL(26, 345, 17)
     "setMinElementSize\0setMaxElementSize\0"
     "setCustomArguments\0resetMeshOptions\0"
     "setMeshVisible\0setResultVisible\0"
-    "setDrawTypeThin\0setDrawTypeFilled"
+    "setDrawTypeThin\0setDrawTypeMassive"
 };
 #undef QT_MOC_LITERAL
 
@@ -152,7 +152,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->meshVisible((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 1: _t->resultVisible((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 2: _t->drawTypeThin(); break;
-        case 3: _t->drawTypeFilled(); break;
+        case 3: _t->drawTypeMassive(); break;
         case 4: _t->addPolygon(); break;
         case 5: _t->addCircle(); break;
         case 6: _t->deleteEntity(); break;
@@ -173,7 +173,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 21: _t->setMeshVisible((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 22: _t->setResultVisible((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 23: _t->setDrawTypeThin((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 24: _t->setDrawTypeFilled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 24: _t->setDrawTypeMassive((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -199,7 +199,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::drawTypeFilled)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::drawTypeMassive)) {
                 *result = 3;
             }
         }
@@ -263,7 +263,7 @@ void MainWindow::drawTypeThin()
 }
 
 // SIGNAL 3
-void MainWindow::drawTypeFilled()
+void MainWindow::drawTypeMassive()
 {
     QMetaObject::activate(this, &staticMetaObject, 3, 0);
 }

@@ -181,11 +181,11 @@ void MainWindow::setDrawTypeThin(bool enable)
 		emit drawTypeThin();
 	}
 }
-void MainWindow::setDrawTypeFilled(bool enable)
+void MainWindow::setDrawTypeMassive(bool enable)
 {
 	if (enable)
 	{
-		cModel->drawModel->setDrawType(DrawModel::FILLED);
-		emit drawTypeThin();
+		cModel->drawModel->setDrawType(DrawModel::MASSIVE);
+		emit drawTypeMassive();
 	}
 }

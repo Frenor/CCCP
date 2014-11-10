@@ -119,4 +119,13 @@ private:
 		\return Entity represented by the given actor
 	*/
 	Entity* findEntityBasedOnActor(vtkSmartPointer<vtkActor>);
+	/*!
+	Create massive surfaces for all closed entities in draw model.
+	*/
+	void createMassiveSurface(Entity*);
+	/*!
+	Create thin wall surfaces for all closed entities in draw model.
+	Based on defined wall thickness for each edge.
+	*/
+	void createThinSurface(Entity*);
 };

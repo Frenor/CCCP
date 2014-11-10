@@ -14,6 +14,7 @@
 #include "EntityBRep.h"
 #include "EntityOperation.h"
 #include "EntityDialog.h"
+#include "DimensionDialog.h"
 
 #include "TestLib.h"
 
@@ -26,8 +27,8 @@ class TEST_LIB DrawModel : public QObject
 {
 	Q_OBJECT
 public:
-	static const int THINWALLED = 1;
-	static const int FILLED = 2;
+	static const int MASSIVE = 1;
+	static const int THINWALLED = 2;
 
 	explicit DrawModel(QObject *parent);
 	~DrawModel() { std::cout << "DELETED: DrawModel" << std::endl; }
@@ -124,6 +125,12 @@ public slots:
 		The entity to display is either given by an argument or by the active entity set in model.
 	*/
 	void showProperties(Entity*);
+
+	/*!
+	Display dimensions window for an entity.
+	The entity to display is either given by an argument or by the active entity set in model.
+	*/
+	void showDimensions(Entity*);
 
 	/*!
 		Sets the drawing type to the given input value
