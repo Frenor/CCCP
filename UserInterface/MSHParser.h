@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MSHPARSER_H
+#define MSHPARSER_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -91,3 +93,4 @@ private:
 	void readDouble(std::ifstream&, double*);
 	bool filePosEqualsLine(std::ifstream&, std::string);
 };
+#endif //MSHPARSER_H

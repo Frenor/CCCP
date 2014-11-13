@@ -1,4 +1,6 @@
 #pragma once
+#ifndef VTKPARSER_H
+#define VTKPARSER_H
 
 #include <qobject.h>
 #include <vtkGenericDataObjectReader.h>
@@ -28,3 +30,4 @@ public:
 
 	vtkSmartPointer<vtkPointData> getPointData();
 };
+#endif //VTKPARSER_H

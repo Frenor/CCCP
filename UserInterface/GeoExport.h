@@ -1,4 +1,6 @@
 #pragma once
+#ifndef GEOEXPORT_H
+#define GEOEXPORT_H
 
 #include "AbstractExport.h"
 #include "TestLib.h"
@@ -31,3 +33,4 @@ private:
 	*/
 	void writeLineloops();
 };
+#endif GEOEXPORT_H

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef SHORTCUTMANAGER_H
+#define SHORTCUTMANAGER_H
 
 #include <qshortcut.h>
 #include <qobject.h>
@@ -24,3 +26,4 @@ private:
 	*/
 	static QShortcut* createShortcut(QWidget*, QKeySequence);
 };
+#endif //SHORTCUTMANAGER_H

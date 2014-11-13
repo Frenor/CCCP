@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ABSTRACTEXPORT_H
+#define ABSTRACTEXPORT_H
 
 #include <iostream>
 #include <fstream>
@@ -64,3 +66,4 @@ private:
 
 	virtual void write() = 0;
 };
+#endif //ABSTRACTEXPORT_H

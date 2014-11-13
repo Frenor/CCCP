@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef ENTITYOPERATION_H
+#define ENTITYOPERATION_H
 #include <qobject.h>
 #include "Entity.h"
 
@@ -57,3 +58,4 @@ private:
 	*/
 	void execute();
 };
+#endif //ENTITYOPERATION_H

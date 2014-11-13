@@ -1,3 +1,6 @@
+#ifndef RESULTCONTROLLER_H
+#define RESULTCONTROLLER_H
+
 #include <vtkOrientationMarkerWidget.h>
 #include <vtkAxesActor.h>
 #include <vtkScalarBarWidget.h>
@@ -69,3 +72,4 @@ private:
 	void createOrientationMarker();
 	
 };
+#endif //RESULTCONTROLLER_H

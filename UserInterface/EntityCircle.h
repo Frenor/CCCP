@@ -1,4 +1,6 @@
 #pragma once 
+#ifndef ENTITYCIRCLE_H
+#define ENTITYCIRCLE_H
 
 #define _USE_MATH_DEFINES
 
@@ -64,3 +66,4 @@ private:
 	*/
 	void reset();
 };
+#endif //ENTITYCIRCLE_H

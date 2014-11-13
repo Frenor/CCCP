@@ -1,4 +1,6 @@
 #pragma once
+#ifndef BREPFACTORY_H
+#define BREPFACTORY_H
 
 #include <TopoDS.hxx>
 #include <TopoDS_Vertex.hxx>
@@ -127,3 +129,4 @@ private:
 	*/
 	Node* createNodeFromVertex(TopoDS_Vertex);
 };
+#endif //BREPFACTORY_H

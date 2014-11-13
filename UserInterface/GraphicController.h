@@ -1,4 +1,6 @@
 #pragma once
+#ifndef GRAPHICCONTROLLER_H
+#define GRAPHICCONTROLLER_H
 
 #include "vtkSmartPointer.h"
 #include "vtkActor.h"
@@ -25,3 +27,4 @@ public:
 	virtual void actorDoubleClicked(vtkSmartPointer<vtkActor>) = 0;
 
 };
+#endif //GRAPHICCONTROLLER_H

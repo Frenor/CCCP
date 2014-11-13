@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MESH_H
+#define MESH_H
 
 #include <vector>
 #include <list>
@@ -54,3 +56,4 @@ private:
 	QString fileName;
 	std::vector<Element> elements;
 };
+#endif //MESH_H

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef NODE_H
+#define NODE_H
 
 #include <iostream>
 //! A data object storing node data.
@@ -26,3 +28,4 @@ public:
 	~Node(){ //std::cout << "Node deleted" << std::endl; 
 	}
 };
+#endif //NODE_H

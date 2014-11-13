@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ENTITYBREP_H
+#define ENTITYBREP_H
 
 #include "Entity.h"
 #include "BRepFactory.h"
@@ -76,3 +78,4 @@ private:
 	*/
 	void updateHoleActors();
 };
+#endif //ENTITYBREP_H

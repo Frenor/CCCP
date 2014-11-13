@@ -1,3 +1,6 @@
+#ifndef ENTITYTREEMENU_H
+#define ENTITYTREEMENU_H
+
 #include <qobject.h>
 #include <qmenu.h>
 #include "Entity.h"
@@ -19,3 +22,4 @@ public:
 signals:
 	void propertiesSelected();	//!< Emitted the properties is clicked in the context menu
 };
+#endif //ENTITYTREEMENU_H

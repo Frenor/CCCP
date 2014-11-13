@@ -1,4 +1,6 @@
 #pragma once
+#ifndef VTKCONTROLLEDSEEDWIDGET_H
+#define VTKCONTROLLEDSEEDWIDGET_H
 
 #include "vtkSeedWidget.h"
 #include "vtkHandleWidget.h"
@@ -138,3 +140,4 @@ private:
 
 	Entity *activeEntity;
 };
+#endif //VTKCONTROLLEDSEEDWIDGET_H

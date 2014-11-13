@@ -1,4 +1,6 @@
 #pragma once
+#ifndef GRAPHICSVIEW_H
+#define GRAPHICSVIEW_H
 
 #include <vector>
 
@@ -135,3 +137,5 @@ signals:
 	void actorClicked(vtkSmartPointer<vtkActor>);	
 	void actorDoubleClicked(vtkSmartPointer<vtkActor>);
 };
+
+#endif //GRAPHICSVIEW_H

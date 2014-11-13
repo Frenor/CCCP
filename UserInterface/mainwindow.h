@@ -1,4 +1,6 @@
 #pragma once 
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QFileDialog>
 #include <QFileSystemModel>
@@ -195,3 +197,4 @@ private:
 	void addResultController();
 };
 
+#endif //MAINWINDOW_H

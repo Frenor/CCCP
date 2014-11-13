@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CMODEL_H
+#define CMODEL_H
 
 #include <qobject.h>
 #include <QFile.h>
@@ -151,3 +153,4 @@ private:
 
 	void createDataModels();		//!< Creates a new draw model and result model
 };
+#endif //CMODEL_H

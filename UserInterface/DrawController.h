@@ -1,4 +1,6 @@
 #pragma once
+#ifndef DRAWCONTROLLER_H
+#define DRAWCONTROLLER_H
 
 #include "GraphicController.h"
 #include "VTKControlledSeedWidget.h"
@@ -121,3 +123,4 @@ private:
 	*/
 	Entity* findEntityBasedOnActor(vtkSmartPointer<vtkActor>);
 };
+#endif //DRAWCONTROLLER_H

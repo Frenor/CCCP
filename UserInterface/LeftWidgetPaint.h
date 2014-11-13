@@ -1,3 +1,6 @@
+#ifndef LEFTWIDGETPAINT_H
+#define LEFTWIDGETPAINT_H
+
 #include <QtWidgets/QWidget>
 #include <iostream>
 
@@ -39,3 +42,4 @@ private:
 	DrawModel* model;			//!< Reference to the draw model. The data model
 	TreeDrawModel *treeModel;	//!< Tree model contains items related to the tree.
 };
+#endif //LEFTWIDGETPAINT_H

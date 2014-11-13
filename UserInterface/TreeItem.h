@@ -1,4 +1,6 @@
 #pragma once
+#ifndef TREEITEM_H
+#define TREEITEM_H
 
 #include <QStandardItemModel>
 #include "Entity.h"
@@ -17,3 +19,4 @@ public:
 
 	Entity * entityReferece;	//!< Reference to the entity
 };
+#endif //TREEITEM_H

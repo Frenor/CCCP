@@ -1,3 +1,6 @@
+#ifndef DRAWVIEWMENU_H
+#define DRAWVIEWMENU_H
+
 #include <iostream>
 
 #include <qobject.h>
@@ -26,3 +29,4 @@ signals:
 private:
 	QWidget *view;
 };
+#endif //DRAWVIEWMENU_H

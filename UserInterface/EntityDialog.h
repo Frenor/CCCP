@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef ENTITYDIALOG_H
+#define ENTITYDIALOG_H
 #include <qstandarditemmodel.h>
 
 #include "ui_entityDialog.h"
@@ -62,3 +63,4 @@ private:
 	*/
 	double tableCellToDouble(int, int);
 };
+#endif //ENTITYDIALOG_H

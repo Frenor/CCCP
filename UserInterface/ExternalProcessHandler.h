@@ -1,3 +1,6 @@
+#ifndef EXTERNALPROCESSHANDLER_H
+#define EXTERNALPROCESSHANDLER_H
+
 #include <iostream>
 
 #include <qobject.h>
@@ -47,3 +50,4 @@ private:
 	QProcess *meshProcess;
 	QProcess *solveProcess;
 };
+#endif //EXTERNALPROCESSHANDLER_H

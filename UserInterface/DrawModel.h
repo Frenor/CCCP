@@ -1,4 +1,7 @@
 #pragma once
+#ifndef DRAWMODEL_H
+#define DRAWMODEL_H
+
 #include <vector>
 
 #include <qstring.h>
@@ -149,5 +152,6 @@ private:
 	*/
 	void updateEntityLevels();
 	int activeType;						//!< Active drawing type
-
 };
+
+#endif //DRAWMODEL_H

@@ -1,3 +1,6 @@
+#ifndef LEFTWIDGETRESULT_H
+#define LEFTWIDGETRESULT_H
+
 #include <QtWidgets/QWidget>
 
 #include "ui_LeftWidgetResult.h"
@@ -35,3 +38,4 @@ private:
 	Ui::LeftWidgetResult ui;	//!< Reference to widget ui file 
 	ResultModel * model;		//!< Reference to the model
 };
+#endif //LEFTWIDGETRESULT_H

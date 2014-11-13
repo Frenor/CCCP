@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ENTITYPOLY_H
+#define ENTITYPOLY_H
 
 #include "Entity.h"
 #include "TestLib.h"
@@ -40,3 +42,4 @@ public:
 	*/
 	std::vector<Node*> getSeeds();
 };
+#endif //ENTITYPOLY_H

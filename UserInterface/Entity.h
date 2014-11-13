@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ENTITY_H
+#define ENTITY_H
 
 #include <vector>
 #include <list>
@@ -214,3 +216,4 @@ protected:
 	std::vector<vtkSmartPointer<vtkActor>> holeActors;
 	vtkSmartPointer<vtkPoints> points;
 };
+#endif //ENTITY_H

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef RESULTMODEL_H
+#define RESULTMODEL_H
 
 #include <qobject.h>
 #include <vtkPointData.h>
@@ -111,3 +113,4 @@ private:
 
 	std::map<std::string, double*> ranges;
 };
+#endif //RESULTMODEL_H

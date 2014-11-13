@@ -1,4 +1,6 @@
 #pragma once
+#ifndef TREEDRAWMODEL_H
+#define TREEDRAWMODEL_H
 
 #include <QStandardItemModel>
 #include "Entity.h"
@@ -30,3 +32,4 @@ public slots:
 signals:
 	void selectionChanged(Entity*);
 };
+#endif //TREEDRAWMODEL_H

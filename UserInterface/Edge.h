@@ -1,5 +1,5 @@
-#ifndef EDGE_OBJECT
-#define EDGE_OBJECT
+#ifndef EDGE_H
+#define EDGE_H
 
 //!	A data object holding edge data
 class Edge
@@ -17,4 +17,4 @@ public:
 	~Edge(){  std::cout << "Edge deleted" << std::endl; }
 };
 
-#endif
+#endif //EDGE_H

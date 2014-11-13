@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ELEMENT_H
+#define ELEMENT_H
 
 #include <vector>
 #include "Node.h"
@@ -78,3 +80,4 @@ public:
 	*/
 private:
 };
+#endif //ELEMENT_H
