@@ -1,6 +1,8 @@
 #include "Entity.h"
 #include <vector>
 #include <iostream>
+#include "DrawModel.h"
+
 
 Entity::Entity(QObject *parent) : QObject(parent)
 {
@@ -23,6 +25,9 @@ Entity::~Entity()
 	deleteEdges();
 	deleteNodes();
 
+	actor->Delete();
+	points->Delete();
+
 	std::cout << "Entity deleted" << std::endl; 
 }
 
@@ -38,7 +43,17 @@ bool Entity::isClosed()
 
 void Entity::updatePolygon(int drawingType)
 {
-	updateActor(getPolyData());
+	switch (drawingType)
+	{
+	case DrawModel::MASSIVE:
+		updateActor(getPolyData());
+		break;
+	case DrawModel::THINWALLED:
+		updateActor(getPolyDataWalled());
+		break;
+	default:
+		break;
+	}
 }
 
 void Entity::updateActor(vtkSmartPointer<vtkPolyData> pd)
@@ -79,6 +94,24 @@ vtkSmartPointer<vtkPolyData> Entity::getPolyData()
 	return pd;
 }
 
+vtkSmartPointer<vtkPolyData> Entity::getPolyDataWalled()
+{
+	vtkSmartPointer<vtkCellArray> poly = vtkSmartPointer<vtkCellArray>::New();
+	vtkSmartPointer<vtkPolyData> pd = vtkSmartPointer<vtkPolyData>::New();
+
+	points->Initialize();
+
+	for each (Edge *edge in edges)
+	{
+		addWallToPoints(edge);
+		poly->InsertNextCell(getWallPolygon(edge));
+	}
+	pd->SetPoints(points);
+	pd->SetPolys(poly);
+
+	return pd;
+}
+
 vtkSmartPointer<vtkPolygon> Entity::getPolygon()
 {
 	int n = 0;
@@ -96,6 +129,42 @@ vtkSmartPointer<vtkPolygon> Entity::getPolygon()
 	//std::cout << "Number of edges: " << polygon->GetNumberOfEdges() << std::endl;
 
 	return polygon;
+}
+
+vtkSmartPointer<vtkPolygon> Entity::getWallPolygon(Edge* edge)
+{
+	//TODO: Too much hard coding, see "addWallToPoints" for more.
+	vtkSmartPointer<vtkPolygon> polygon = vtkSmartPointer<vtkPolygon>::New();
+	polygon->GetPointIds()->SetNumberOfIds(4); //!< An edge will always have two nodes, each node has two points. 2*2=4
+
+	polygon->GetPointIds()->SetId(0, (edge->n1->id * 2) + 0);
+	polygon->GetPointIds()->SetId(1, (edge->n2->id * 2) + 0);
+	polygon->GetPointIds()->SetId(2, (edge->n2->id * 2) + 1);
+	polygon->GetPointIds()->SetId(3, (edge->n1->id * 2) + 1);
+
+	return polygon;
+}
+
+void Entity::addWallToPoints(Edge* edge)
+{
+	double v[2] = { edge->n2->x - edge->n1->x, edge->n2->y - edge->n1->y };
+	double vLength = sqrt(pow(v[0], 2) + pow(v[1], 2)); //Pythag. length of vector V. 
+	//TODO: Test if this is fast enough, if not consider the magical fast inverse sqare root (http://en.wikipedia.org/wiki/Fast_inverse_square_root)
+	
+	/* TODO: Way to much hard coding. This should be a loop over nodes in Edge. 
+	This requires reimplementation of all references to Edge, and I need to make this work first.
+	Possible to loop more than this as well, to achieve better parallelization.	//FN 	*/
+	
+	double scalingFactorN1 = (edge->width1 / 2) / vLength;		//Divide by half, since node position is on center point of wall.
+	double scalingFactorN2 = (edge->width2 / 2) / vLength;
+	
+	double u1[2] = { -scalingFactorN1 * v[1], scalingFactorN1 * v[0] };
+	double u2[2] = { -scalingFactorN2 * v[1], scalingFactorN2 * v[0] };
+
+	points->InsertPoint((edge->n1->id * 2) + 0, edge->n1->x + u1[0], edge->n1->y + u1[1], 0);
+	points->InsertPoint((edge->n2->id * 2) + 0, edge->n2->x + u1[0], edge->n2->y + u1[1], 0);
+	points->InsertPoint((edge->n2->id * 2) + 1, edge->n2->x - u1[0], edge->n2->y - u1[1], 0);
+	points->InsertPoint((edge->n1->id * 2) + 1, edge->n1->x - u1[0], edge->n1->y - u1[1], 0);
 }
 
 double Entity::getLevel()

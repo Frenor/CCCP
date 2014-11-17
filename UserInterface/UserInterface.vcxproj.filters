@@ -317,6 +317,9 @@
     <ClCompile Include="ResultController.cpp">
       <Filter>Source Files\ViewController\ResultWidget</Filter>
     </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.ui">

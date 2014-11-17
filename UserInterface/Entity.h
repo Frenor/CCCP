@@ -17,6 +17,7 @@
 
 #include "Node.h"
 #include "Edge.h"
+//#include "DrawModel.h"
 
 #include "TestLib.h"
 
@@ -140,7 +141,7 @@ public:
 	
 	/*!
 		Returns the actor representing the entity, but also calculates the appropriate z-level
-		\retrun vtkSmartPointer<vtkActor> actor representing the polygon. 
+		\return vtkSmartPointer<vtkActor> actor representing the polygon. 
 	*/
 	vtkSmartPointer<vtkActor> getZLeveledActor(double);
 	
@@ -148,6 +149,12 @@ public:
 		Returns the polygon representing the entity shape. Used in composite entities were shape data is retrieved by this function? 
 	*/
 	vtkSmartPointer<vtkPolygon> getPolygon();
+
+	/*!
+		Returns the polygons representing the shape of the walls in this entity.
+		\return vtkSmartPointer<vtkCellArray> collection of polygons representing the shape of the walls
+	*/
+	vtkSmartPointer<vtkPolygon> getWallPolygon(Edge*);
 	
 	/*!
 		Emits entityChanged. 
@@ -203,6 +210,7 @@ protected:
 	Node *lastSelectedNode;		//!<Last added node. Used to keep track of nodes when drawing lines in polygon
 	
 	vtkSmartPointer<vtkPolyData> getPolyData();
+	vtkSmartPointer<vtkPolyData> getPolyDataWalled();	//!< Uses original PolyData to generate a visualisation of wall thickness
 	void updateActor(vtkSmartPointer<vtkPolyData>);
 
 	void deleteNodes();
@@ -211,6 +219,7 @@ protected:
 	void addNode(double pos[], int);
 	void createSeed(double[], int);
 	void createEdge(Node*, Node*);
+	void addWallToPoints(Edge*);
 
 	vtkSmartPointer<vtkActor> actor;
 	std::vector<vtkSmartPointer<vtkActor>> holeActors;

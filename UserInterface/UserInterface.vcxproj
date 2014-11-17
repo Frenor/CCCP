@@ -149,6 +149,7 @@
     <ClCompile Include="CModel.cpp" />
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="DrawModel.cpp" />
+    <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityBRep.cpp" />

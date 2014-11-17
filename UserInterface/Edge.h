@@ -1,6 +1,8 @@
 #ifndef EDGE_H
 #define EDGE_H
 
+#include "Node.h"
+
 //!	A data object holding edge data
 class Edge
 {
@@ -8,13 +10,13 @@ public:
 	Node *n1;	//!< Node 1 in edge
 	Node *n2;	//!< Node 2 in edge
 
-	Edge(Node* node1, Node *node2)
-	{
-		this->n1 = node1;
-		this->n2 = node2;
-	}
-	
-	~Edge(){  std::cout << "Edge deleted" << std::endl; }
+	double width1;	//!< Edge width at Node 1
+	double width2;	//!< Edge width at Node 1
+
+	Edge(Node*, Node*);
+	~Edge();
+
+	void setWidth(double, double);
 };
 
 #endif //EDGE_H
