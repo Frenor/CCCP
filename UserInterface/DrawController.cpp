@@ -63,7 +63,6 @@ void DrawController::setModel(DrawModel *DrawModel)
 	connect(model, &DrawModel::activeEntityChanged, this, &DrawController::setActiveEntity);
 	connect(model, &DrawModel::entityChanged, this, &DrawController::invalidate);
 	connect(model, &DrawModel::entityDeleted, this, &DrawController::reset);
-	connect(model, &DrawModel::drawTypeChanged, this, &DrawController::invalidate);
 }
 
 void DrawController::reset()
@@ -145,7 +144,7 @@ void DrawController::createSurface(Entity* entity)
 {
 	if(entity->isVisible())
 	{
-		entity->updatePolygon(model->getActiveDrawType());
+		entity->updatePolygon();
 
 		if(model->isNotActiveEntity(entity))
 		{
@@ -186,6 +185,10 @@ void DrawController::setActiveEntity(Entity *activeEntity)
 {
 	scbk->setEntity(activeEntity);
 	updateInteraction(activeEntity);
+	if (activeEntity != NULL)
+	{
+		activeEntity->setActive(true);
+	}
 
 	reset();
 }

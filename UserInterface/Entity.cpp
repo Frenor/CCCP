@@ -1,7 +1,6 @@
 #include "Entity.h"
 #include <vector>
 #include <iostream>
-#include "DrawModel.h"
 
 
 Entity::Entity(QObject *parent) : QObject(parent)
@@ -12,6 +11,7 @@ Entity::Entity(QObject *parent) : QObject(parent)
 	this->closed = false;
 	this->visible = true;
 	this->level = 0;
+	this->active = false;
 
 	this->lastSelectedNode = NULL;
 	this->name = "Entity";
@@ -41,14 +41,14 @@ bool Entity::isClosed()
 	return closed;
 }
 
-void Entity::updatePolygon(int drawingType)
+void Entity::updatePolygon()
 {
-	switch (drawingType)
+	switch (this->crossectionType)
 	{
-	case DrawModel::MASSIVE:
+	case Entity::MASSIVE:
 		updateActor(getPolyData());
 		break;
-	case DrawModel::THINWALLED:
+	case Entity::THINWALLED:
 		updateActor(getPolyDataWalled());
 		break;
 	default:
@@ -86,6 +86,7 @@ vtkSmartPointer<vtkPolyData> Entity::getPolyData()
 	vtkSmartPointer<vtkCellArray> poly = vtkSmartPointer<vtkCellArray>::New();
 	vtkSmartPointer<vtkPolyData> pd = vtkSmartPointer<vtkPolyData>::New();
 		
+	points->Initialize();
 	poly->InsertNextCell(getPolygon());
 
 	pd->SetPoints(points);
@@ -100,7 +101,6 @@ vtkSmartPointer<vtkPolyData> Entity::getPolyDataWalled()
 	vtkSmartPointer<vtkPolyData> pd = vtkSmartPointer<vtkPolyData>::New();
 
 	points->Initialize();
-	std::cout << "Redrawing PolydataWalled!" << std::endl;
 	for each (Edge *edge in edges)
 	{
 		addWallToPoints(edge);
@@ -137,30 +137,18 @@ vtkSmartPointer<vtkPolygon> Entity::getWallPolygon(Edge* edge)
 	vtkSmartPointer<vtkPolygon> polygon = vtkSmartPointer<vtkPolygon>::New();
 	polygon->GetPointIds()->SetNumberOfIds(4); //!< An edge will always have two nodes, each node has two points. 2*2=4
 
-	std::cout << "Adding wall edge IDs to polygon: in this order: ";
 	polygon->GetPointIds()->SetId(0, (edge->n1->id * 4) + 0);
-	std::cout << (edge->n1->id * 2) + 0;
-
 	polygon->GetPointIds()->SetId(1, (edge->n2->id * 4) + 2);
-	std::cout << (edge->n2->id * 2) + 0;
-
 	polygon->GetPointIds()->SetId(2, (edge->n2->id * 4) + 3);
-	std::cout << (edge->n2->id * 2) + 1;
-
 	polygon->GetPointIds()->SetId(3, (edge->n1->id * 4) + 1);
-	std::cout << (edge->n1->id * 2) + 1 << std::endl;
 
 	return polygon;
 }
 
 void Entity::addWallToPoints(Edge* edge)
 {
-	std::cout << "Creating wall edge:" << std::endl;
 	double v[2] = { edge->n2->x - edge->n1->x, edge->n2->y - edge->n1->y };
-	std::cout << "Vector v: [x,y]: [" << v[0] << ", " << v[1] << "]" << std::endl;
-
 	double vLength = sqrt(pow(v[0], 2) + pow(v[1], 2)); //Pythag. length of vector V. 
-	std::cout << "Vector length: " << vLength << std::endl;
 
 	/* TODO: Test if this is fast enough, if not consider the magical fast inverse sqare root (http://en.wikipedia.org/wiki/Fast_inverse_square_root)
 	But, this should be fairly optimized by the compiler. I don't actually worry about this after checking the web.	//FN	*/
@@ -171,11 +159,9 @@ void Entity::addWallToPoints(Edge* edge)
 	
 	double scalingFactorN1 = (edge->width1 / 2) / vLength;		//Divide by half, since node position is on center point of wall.
 	double scalingFactorN2 = (edge->width2 / 2) / vLength;
-	std::cout << "Scaling factors [sN1, sN2]: [" << scalingFactorN1 << ", " << scalingFactorN2 << "]" << std::endl;
 
 	double u1[2] = { -scalingFactorN1 * v[1], scalingFactorN1 * v[0] };
 	double u2[2] = { -scalingFactorN2 * v[1], scalingFactorN2 * v[0] };
-	std::cout << "Movement vectors [u1[x,y], u2[x,y]]: [[" << u1[0] << ", " << u1[1] << "], [" << u2[0] << ", " << u2[1] << "]]" << std::endl;
 	
 	points->InsertPoint((edge->n1->id * 4) + 0, edge->n1->x + u1[0], edge->n1->y + u1[1], 0);
 	points->InsertPoint((edge->n2->id * 4) + 2, edge->n2->x + u2[0], edge->n2->y + u2[1], 0);
@@ -341,4 +327,23 @@ bool Entity::isClockWise()
 	}
 
 	return (c > 0);
+}
+
+void Entity::drawTypeChanged(int newType)
+{
+	if (this->active)
+	{
+		setCrossectionType(newType);
+		emit entityChanged(this);
+	}
+}
+
+void Entity::setActive(bool active)
+{
+	this->active = active;
+}
+
+void Entity::setCrossectionType(int crossectionType)
+{
+	this->crossectionType = crossectionType;
 }

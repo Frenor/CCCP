@@ -105,7 +105,7 @@ void ResultController::createMeshActor()
 	if(model->hasMeshData()){
 		std::cout << "CreateMeshActor[ResultController]: N: " << model->getMesh()->getNumberOfNodes() << ", E: " << model->getMesh()->getNumberOfElements() << std::endl;
 
-		model->getMesh()->updatePolygon(DrawModel::MASSIVE);
+		model->getMesh()->updatePolygon();
 
 		meshActor = model->getMesh()->getActor();
 		meshActor->GetProperty()->SetRepresentationToWireframe();
