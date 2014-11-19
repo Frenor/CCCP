@@ -157,6 +157,16 @@ public slots:
 	Sets the drawing type to filled crossection mode
 	*/
 	void setDrawTypeMassive(bool);
+	/*!
+	Signal emitted from "CModel" when a massive crossection is selected (clicked).
+	Used to set the correct value in the drawing type selector
+	*/
+	void massiveEntitySelectedSlot(bool);
+	/*!
+	Signal emitted from "CModel" when a thin walled crossection is selected (clicked).
+	Used to set the correct value in the drawing type selector
+	*/
+	void thinwalledEntitySelectedSlot(bool);
 signals:
 	/*!
 		Signal emitted when setMeshVisible is called by the UI.
@@ -171,9 +181,19 @@ signals:
 	*/
 	void drawTypeThin();
 	/*!
-	Signal emitted when setDrawTypeFilled is called by the UI.
+		Signal emitted when setDrawTypeFilled is called by the UI.
 	*/
 	void drawTypeMassive();
+	/*!
+		Signal emitted when a massive crossection is selected (clicked).
+		Used to set the correct value in the drawing type selector
+	*/
+	void massiveEntitySelectedSig(bool);
+	/*!
+		Signal emitted when a thin walled crossection is selected (clicked).
+		Used to set the correct value in the drawing type selector
+	*/
+	void thinwalledEntitySelectedSig(bool);
 
 private:
 	Ui::MainWindowClass ui;

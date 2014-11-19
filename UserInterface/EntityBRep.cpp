@@ -24,7 +24,7 @@ void EntityBRep::setRequireUpdate()
 
 EntityBRep::~EntityBRep(){}
 
-void EntityBRep::updatePolygon(int drawingType)
+void EntityBRep::updatePolygon()
 {
 	if(updateRequired)
 	{
@@ -94,7 +94,7 @@ void EntityBRep::updateHoleActors()
 	holeActors.clear();
 	for each (Entity* entity in resultHoleEntities)
 	{
-		entity->updatePolygon(DrawModel::MASSIVE);
+		entity->updatePolygon();
 		entity->setLevel(this->level);
 		vtkSmartPointer<vtkActor> holeActor = entity->getZLeveledActor(0.01);
 		holeActors.push_back(holeActor);

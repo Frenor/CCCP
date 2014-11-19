@@ -45,7 +45,7 @@ int Mesh::getNumberOfElements()
 	return elements.size();
 }
 
-void Mesh::updatePolygon(int drawingType)
+void Mesh::updatePolygon()
 {
 	updateActor(getPolyData());
 }

@@ -4,13 +4,16 @@ DrawModel::DrawModel(QObject *parent) : QObject(parent)
 {
 	activeEntity = NULL;
 	activeEntityFinalized = true;
-	activeType = MASSIVE;
+	activeType = Entity::MASSIVE;
 }
 
 void DrawModel::setActiveInput(Entity *entity)
 {
+	if (activeEntity != NULL)
+	{
+		activeEntity->setActive(false); //Deactivate old first
+	}
 	this->activeEntity = entity;
-
 	emit activeEntityChanged(entity);
 }
 
@@ -64,11 +67,13 @@ void DrawModel::addEntity(Entity* entity)
 	entities.push_back(entity);
 	updateEntityLevels();
 
+	entity->setCrossectionType(getActiveDrawType());
 	setActiveInput(entity);
 	std::cout << "Entity added" << std::endl;
 
 	connect(entity, &Entity::entityChanged, this, &DrawModel::setEntityChanged);
 	connect(entity, &Entity::entityFinalized, this, &DrawModel::setActiveEntityNULL);
+	connect(this, &DrawModel::drawTypeChanged, entity, &Entity::drawTypeChanged);
 
 	emit entityCreated(entity);
 }
@@ -120,6 +125,10 @@ void DrawModel::finalizeActiveEntity()
 void DrawModel::setActiveEntityNULL()
 {
 	activeEntityFinalized = true;
+	for each (Entity *entity in entities)
+	{
+		entity->setActive(false);
+	}
 	setActiveInput(NULL);
 }
 
@@ -173,17 +182,6 @@ void DrawModel::showProperties(Entity* entity)
 
 void DrawModel::setDrawType(int type)
 {
-	switch (type)
-	{
-	case DrawModel::THINWALLED:
-		std::cout << "Thinwalled drawing type" << std::endl;
-		break;
-	case DrawModel::MASSIVE:
-		std::cout << "Filled drawing type" << std::endl;
-		break;
-	default:
-		break;
-	}
 	this->activeType = type;
 	emit drawTypeChanged(type);
 }

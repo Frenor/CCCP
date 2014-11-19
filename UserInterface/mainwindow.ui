@@ -1056,10 +1056,44 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>MainWindowClass</sender>
+   <signal>massiveEntitySelectedSig(bool)</signal>
+   <receiver>Massive</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>518</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>52</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MainWindowClass</sender>
+   <signal>thinwalledEntitySelectedSig(bool)</signal>
+   <receiver>Thin</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>518</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>meshVisible(bool)</signal>
   <signal>resultVisible(bool)</signal>
+  <signal>massiveEntitySelectedSig(bool)</signal>
+  <signal>thinwalledEntitySelectedSig(bool)</signal>
   <slot>openFile()</slot>
   <slot>deleteEntity()</slot>
   <slot>addPolygon()</slot>

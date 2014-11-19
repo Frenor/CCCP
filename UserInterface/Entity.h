@@ -38,6 +38,10 @@ public:
 	const static int BREP = 3;
 	int type;			//!<Type of element. Polygon, Circle, Rectangle or shapes determined by boundary operations.
 
+	const static int MASSIVE = 0;
+	const static int THINWALLED = 1;
+	int crossectionType;
+
 	//Could be cleaner if extracted to a separate class called "EntityProperty"
 	std::string name;	//!< Name of entity
 	double material;	//!< Material
@@ -55,6 +59,16 @@ public:
 		Sets the entitytype
 	*/
 	void setType(int);
+
+	/*!
+		Sets the crossection type
+	*/
+	void setCrossectionType(int);
+
+	/*!
+		Is this the active entity (currently editing)
+	*/
+	void setActive(bool);
 
 	/*! 
 		Abstract function required by all entities in order to be editied by the seed widget.
@@ -78,7 +92,7 @@ public:
 		Abstract function required by all entities in order to be displayed by the GraphicView
 		Updates the PolyData and the actor.
 	*/
-	virtual void updatePolygon(int);
+	virtual void updatePolygon();
 
 	/*! 
 		Closes the entity if not already closed. 
@@ -199,12 +213,16 @@ signals:
 	*/
 	void entityFinalized();
 	
+public slots:
+	void drawTypeChanged(int);
+
 protected:
 	bool editable;		//!<Entity is editable by the user and seed widget
 	bool visible;		//!<Entity hidden or visible
 	bool finalized;		//!<Done editing entity.
 	bool closed;		//!<Entity is closed.
 	bool hole;			//!<Entity is hole.
+	bool active;		//!<Entity is the active entity
 	int level;
 
 	Node *lastSelectedNode;		//!<Last added node. Used to keep track of nodes when drawing lines in polygon

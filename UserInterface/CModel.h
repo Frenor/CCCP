@@ -137,13 +137,16 @@ public slots:
 	*/
 	void resetMeshOptions();
 
-signals:
-	void newDrawModel(DrawModel *);		//!< Emitted when a new draw model is created
-	void drawMode();					//!< Emitted when the UI mode is changed to draw mode
-	void meshMode();					//!< Emitted when the UI mode is changed to mesh mode
-	void resultMode();					//!< Emitted when the UI mode is changed to result mode
-	void uiModeChanged();				//!< Emitted whenever the UI mode is changed
+	void activeEntityChanged(Entity *activeEntity);
 
+signals:
+	void newDrawModel(DrawModel *);			//!< Emitted when a new draw model is created
+	void drawMode();						//!< Emitted when the UI mode is changed to draw mode
+	void meshMode();						//!< Emitted when the UI mode is changed to mesh mode
+	void resultMode();						//!< Emitted when the UI mode is changed to result mode
+	void uiModeChanged();					//!< Emitted whenever the UI mode is changed
+	void massiveEntitySelected(bool);		//!< Signal emitted when a massive crossection is selected (clicked).
+	void thinwalledEntitySelected(bool);	//!< Signal emitted when a thin walled crossection is selected (clicked).
 private:
 	int activeMode;		//!< Reference to the current active UI mode
 	
