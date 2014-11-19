@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	connect(cModel, SIGNAL(drawMode()), this, SLOT(showDrawController()));
 	connect(cModel, SIGNAL(meshMode()), this, SLOT(showMeshView()));
 	connect(cModel, SIGNAL(resultMode()), this, SLOT(showResultController()));
+	connect(cModel, SIGNAL(massiveEntitySelected(bool)), this, SLOT(massiveEntitySelectedSlot(bool)));
+	connect(cModel, SIGNAL(thinwalledEntitySelected(bool)), this, SLOT(thinwalledEntitySelectedSlot(bool)));
 
 	ui.leftWidgetPaint->setModel(cModel->drawModel);
 	ui.leftWidgetResult->setModel(cModel->resultModel);
@@ -177,7 +179,7 @@ void MainWindow::setDrawTypeThin(bool enable)
 {
 	if (enable)
 	{
-		cModel->drawModel->setDrawType(DrawModel::THINWALLED);
+		cModel->drawModel->setDrawType(Entity::THINWALLED);
 		emit drawTypeThin();
 	}
 }
@@ -185,7 +187,15 @@ void MainWindow::setDrawTypeMassive(bool enable)
 {
 	if (enable)
 	{
-		cModel->drawModel->setDrawType(DrawModel::MASSIVE);
+		cModel->drawModel->setDrawType(Entity::MASSIVE);
 		emit drawTypeMassive();
 	}
+}
+void MainWindow::massiveEntitySelectedSlot(bool selected)
+{
+	emit massiveEntitySelectedSig(selected);
+}
+void MainWindow::thinwalledEntitySelectedSlot(bool selected)
+{
+	emit thinwalledEntitySelectedSig(selected);
 }

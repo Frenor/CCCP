@@ -44,7 +44,7 @@ public:
 		Overridden function from Entity. 
 		UpdatePolygon calls the Mesh's getPolyData() and uses it to update the entityActor.
 	*/
-	void updatePolygon(int);
+	void updatePolygon();
 
 	/*! 
 		Overridden function from Entity. 

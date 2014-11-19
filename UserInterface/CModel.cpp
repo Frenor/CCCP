@@ -13,6 +13,7 @@ CModel::CModel(QObject *parent) : QObject(parent)
 	connect(this, SIGNAL(resultMode()), this, SLOT(executeSolveProcess()));
 	connect(this, SIGNAL(meshMode()), resultModel, SLOT(hideScalarBar()));
 	connect(this, SIGNAL(resultMode()), resultModel, SLOT(showScalarBar()));
+	connect(drawModel, SIGNAL(activeEntityChanged(Entity*)), this, SLOT(activeEntityChanged(Entity*)));
 
 	resetMeshOptions();
 }
@@ -212,4 +213,21 @@ QString CModel::getMinElementSize()
 QString CModel::getMaxElementSize()
 {
 	return maxElementSize;
+}
+
+void CModel::activeEntityChanged(Entity *activeEntity) 
+{
+	if (activeEntity != NULL) {
+		switch (activeEntity->crossectionType)
+		{
+		case Entity::MASSIVE:
+			emit massiveEntitySelected(true);
+			break;
+		case Entity::THINWALLED:
+			emit thinwalledEntitySelected(true);
+			break;
+		default:
+			break;
+		}
+	}
 }
