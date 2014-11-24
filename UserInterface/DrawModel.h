@@ -17,6 +17,7 @@
 #include "EntityBRep.h"
 #include "EntityOperation.h"
 #include "EntityDialog.h"
+#include "DimensionDialog.h"
 
 #include "TestLib.h"
 
@@ -124,6 +125,12 @@ public slots:
 		The entity to display is either given by an argument or by the active entity set in model.
 	*/
 	void showProperties(Entity*);
+
+	/*!
+	Display dimensions window for an entity.
+	The entity to display is either given by an argument or by the active entity set in model.
+	*/
+	void showDimensions(Entity*);
 
 	/*!
 		Sets the drawing type to the given input value

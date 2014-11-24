@@ -87,6 +87,12 @@
     <Filter Include="Header Files\Utilities">
       <UniqueIdentifier>{e271ce86-7146-4536-9995-8e95e74acf9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ViewController\Dialogs\EntityDialog">
+      <UniqueIdentifier>{21a9d746-8695-468d-a926-797250465a97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewController\Dialogs\DimensionDialog">
+      <UniqueIdentifier>{59764b2d-3662-436f-b8f0-63fbfca650d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -254,9 +260,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_EntityTreeMenu.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="EntityDialog.cpp">
-      <Filter>Source Files\ViewController\Dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_EntityDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -319,6 +322,24 @@
     </ClCompile>
     <ClCompile Include="Edge.cpp">
       <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="DimensionDialog.cpp">
+      <Filter>Source Files\ViewController\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DimensionDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DimensionDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityDialog.cpp">
+      <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityDisplayController.cpp">
+      <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityDisplayModel.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -391,9 +412,6 @@
     <CustomBuild Include="entityDialog.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="EntityDialog.h">
-      <Filter>Header Files\ViewController\Dialogs</Filter>
-    </CustomBuild>
     <CustomBuild Include="ExternalProcessHandler.h">
       <Filter>Header Files\Utilities</Filter>
     </CustomBuild>
@@ -414,6 +432,18 @@
     </CustomBuild>
     <CustomBuild Include="ResultController.h">
       <Filter>Header Files\ViewController\ResultWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="dimensionDialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DimensionDialog.h">
+      <Filter>Header Files\ViewController\Dialogs\DimensionDialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityDialog.h">
+      <Filter>Header Files\ViewController\Dialogs</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityDisplayController.h">
+      <Filter>Header Files\ViewController\Dialogs\DimensionDialog</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -452,6 +482,12 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_entityDialog.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_dimensionDialog.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityDisplayModel.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -283,6 +283,13 @@ std::vector<Node*> Entity::getNodesOrdered()
 	return orderedNodes;
 }
 
+std::vector<Edge*> Entity::getEdgesVector()
+{
+	std::vector<Edge*> edgeVector;
+	std::copy(edges.begin(), edges.end(), std::back_inserter(edgeVector));
+	return edgeVector;
+}
+
 std::list<Edge*> Entity::getEdgesOrderedClockWise()
 {
 	if(isClockWise()){

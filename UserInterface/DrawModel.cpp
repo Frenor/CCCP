@@ -180,6 +180,16 @@ void DrawModel::showProperties(Entity* entity)
 	}
 }
 
+void DrawModel::showDimensions(Entity* entity)
+{
+	if (entity || activeEntity)
+	{
+		DimensionDialog *dDialog = new DimensionDialog;
+		dDialog->setDataSource(entity ? entity : activeEntity);
+		dDialog->show();
+	}
+}
+
 void DrawModel::setDrawType(int type)
 {
 	this->activeType = type;

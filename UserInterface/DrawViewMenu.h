@@ -25,8 +25,10 @@ public slots:
 signals:
 	void newAction(int operation);		//!< Emitted when an operation is selected
 	void propertiesSelected(Entity*);	//!< Emitted when properties is selected
+	void dimensionsSelected(Entity*);	//!< Emitted when dimensions is selected
 
 private:
 	QWidget *view;
+	DrawModel *model;
 };
 #endif //DRAWVIEWMENU_H
