@@ -27,7 +27,7 @@ void MainWindow::setupGraphicsView()
 
 void MainWindow::openFile()
 {
-	cModel->fileName = QFileDialog::getOpenFileName(this, tr("Open file"),"",tr("Files (*.*)"));
+	cModel->fileName = QFileDialog::getOpenFileName(this, tr("Open file"), "", tr("Mesh (*.msh);;Result (*.vtk)"));
 	std::string extension = vtksys::SystemTools::GetFilenameLastExtension(cModel->fileName.toStdString());
 
 	if (extension == ".msh")
@@ -42,7 +42,7 @@ void MainWindow::openFile()
 }
 void MainWindow::saveFile()
 {
-	QString fileName = QFileDialog::getSaveFileName(this, tr("Save file"),"",tr("Files (*.*)"));
+	QString fileName = QFileDialog::getSaveFileName(this, tr("Save file"), "", tr("Files (*.*)"));
 	cModel->exportDataModel(fileName);
 }
 void MainWindow::newFile()
