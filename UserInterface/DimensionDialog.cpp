@@ -59,11 +59,27 @@ void DimensionDialog::update()
 		ui.materialGroupBox->setEnabled(true);
 		ui.widthNode1SpinBox->setValue(selectedEdge->width1);
 		ui.widthNode2SpinBox->setValue(selectedEdge->width2);
+
+		if (selectedEdge->material != NULL)
+		{
+			int index = ui.materialsComboBox->findData(selectedEdge->material.id);
+			ui.materialsComboBox->setCurrentIndex(index);
+
+			if (selectedEdge->material->canSetAngle())
+			{
+				ui.compositeAngleSpinBox->setEnabled(true);
+			}
+			else
+			{
+				ui.compositeAngleSpinBox->setEnabled(false);
+			}
+		}
 	}
 	else
 	{
 		ui.widthGroupBox->setEnabled(false);
 		ui.materialGroupBox->setEnabled(false);
+		ui.compositeAngleSpinBox->setEnabled(false);
 	}
 }
 
