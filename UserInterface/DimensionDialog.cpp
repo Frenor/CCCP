@@ -1,13 +1,21 @@
 #include "DimensionDialog.h"
 
 
-DimensionDialog::DimensionDialog(QDialog *parent) : QDialog(parent)
+DimensionDialog::DimensionDialog(Entity *entity, QDialog *parent) : QDialog(parent)
 {
+	this->entity = entity;
+	this->selectedEdge = NULL;
+
 	ui.setupUi(this);
+	setupView();
+
 	tableModel = new QStandardItemModel(3, 2, this);
 	ui.edgeListTableView->setModel(tableModel);
+	populateEdgeTable();
 
-	selectedEdge = NULL;
+	connect(this, SIGNAL(selectedEdgeChanged(Edge*)), this, SLOT(update()));
+	
+	update();
 }
 
 
@@ -42,18 +50,9 @@ void DimensionDialog::populateEdgeTable()
 	}
 }
 
-void DimensionDialog::setDataSource(Entity *entity)
-{
-	this->entity = entity;
-
-	populateEdgeTable();
-
-	update();
-}
-
 void DimensionDialog::update()
 {
-	if (selectedEdge != NULL)
+	if (selectedEdge)
 	{
 		ui.widthGroupBox->setEnabled(true);
 		ui.materialGroupBox->setEnabled(true);
@@ -85,7 +84,16 @@ void DimensionDialog::apply()
 void DimensionDialog::edgeSelected(QModelIndex index)
 {
 	selectedEdge = entity->getEdgesVector()[index.row()];
-	std::cout << "Edge selected!" << std::endl;
 
-	update();
+	emit selectedEdgeChanged(selectedEdge);
+}
+
+void DimensionDialog::setupView()
+{
+	gModel = new EntityGraphicModel(entity);
+	gController = new EntityGraphicController(this->gModel, ui.GraphicsWidget, this);
+
+	connect(this, SIGNAL(selectedEdgeChanged(Edge*)), gModel, SLOT(setSelectedEdge(Edge*)));
+
+	//connect(this->cModel, &CModel::newDrawModel, (DrawController*)gController, &DrawController::setModel);
 }

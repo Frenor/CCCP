@@ -184,8 +184,7 @@ void DrawModel::showDimensions(Entity* entity)
 {
 	if (entity || activeEntity)
 	{
-		DimensionDialog *dDialog = new DimensionDialog;
-		dDialog->setDataSource(entity ? entity : activeEntity);
+		DimensionDialog *dDialog = new DimensionDialog(entity ? entity : activeEntity);
 		dDialog->show();
 	}
 }

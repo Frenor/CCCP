@@ -4,7 +4,7 @@
 
 #include "vtkSmartPointer.h"
 #include "vtkActor.h"
-#include "DrawModel.h"
+//#include "DrawModel.h"
 #include "GraphicsView.h"
 
 //!	An abstract class for controllers, used mostly as an interface for DrawController and ResultController. 

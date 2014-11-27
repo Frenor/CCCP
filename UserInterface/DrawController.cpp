@@ -70,7 +70,7 @@ void DrawController::reset()
 	invalidate();
 	if(model->activeEntityFinalized)
 	{
-		widget->setModel(NULL);
+		widget->setModel(nullptr);
 	}
 	else
 	{
@@ -185,7 +185,7 @@ void DrawController::setActiveEntity(Entity *activeEntity)
 {
 	scbk->setEntity(activeEntity);
 	updateInteraction(activeEntity);
-	if (activeEntity != NULL)
+	if (activeEntity)
 	{
 		activeEntity->setActive(true);
 	}

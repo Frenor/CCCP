@@ -335,11 +335,23 @@
     <ClCompile Include="EntityDialog.cpp">
       <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
     </ClCompile>
-    <ClCompile Include="EntityDisplayController.cpp">
+    <ClCompile Include="EntityGraphicController.cpp">
       <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
     </ClCompile>
-    <ClCompile Include="EntityDisplayModel.cpp">
+    <ClCompile Include="EntityGraphicModel.cpp">
       <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityGraphicController.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityGraphicController.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EntityGraphicModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityGraphicModel.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -442,8 +454,11 @@
     <CustomBuild Include="EntityDialog.h">
       <Filter>Header Files\ViewController\Dialogs</Filter>
     </CustomBuild>
-    <CustomBuild Include="EntityDisplayController.h">
+    <CustomBuild Include="EntityGraphicController.h">
       <Filter>Header Files\ViewController\Dialogs\DimensionDialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityGraphicModel.h">
+      <Filter>Header Files\Models</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -485,9 +500,6 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_dimensionDialog.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityDisplayModel.h">
-      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

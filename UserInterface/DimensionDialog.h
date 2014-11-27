@@ -5,8 +5,8 @@
 
 #include "ui_dimensionDialog.h"
 #include "Entity.h"
-#include "EntityDisplayController.h"
-#include "EntityDisplayModel.h"
+#include "EntityGraphicController.h"
+#include "EntityGraphicModel.h"
 
 //! Controller for the propery dialog box used to spesify edge properties. 
 
@@ -15,22 +15,25 @@ It has a table populated with the edges of an entity.
 A visualisation of the given entity and highilights the selected edge.
 It can be used to specify material properties for entities.
 */
-class DimensionDialog :	public QDialog
+class DimensionDialog : public QDialog
 {
 	Q_OBJECT
+
 public:
-	DimensionDialog(QDialog *parent = 0);
+	DimensionDialog(Entity*, QDialog* parent = 0);
 	~DimensionDialog();
 
-	//GraphicController* gController;		//!< Current active controller for VTK/GraphicsView
-	Edge *selectedEdge;
+	EntityGraphicController* gController;	//!< Current active controller for VTK/GraphicsView
+	EntityGraphicModel* gModel;				//!< Model holding the data for the graphic display of edges
 
+	Edge* selectedEdge;
+
+signals:
 	/*!
-	Sets the entity and populates the property window.
+		Signal fired when a new edge is selected
 	*/
-	void setDataSource(Entity*);
-	void update();
-	
+	void selectedEdgeChanged(Edge*);
+
 public slots:
 	/*!
 	Applies the changes and closes the dialog window
@@ -50,13 +53,15 @@ public slots:
 	*/
 	void edgeSelected(QModelIndex);
 
+	/*!
+	Updates enabled/disabled interface features, field values and passes updated values to the graphic widget
+	*/
+	void update();
 private:
 	Ui::DimensionDialog ui;
-	QStandardItemModel *tableModel;			//!< Model holding the UI table data
-	EntityDisplayModel *displayModel;		//!< Model holding the data for the graphic display of edges
-//	GraphicController *displayController;	//!< Controller for the graphic display of edges
+	QStandardItemModel* tableModel; //!< Model holding the UI table data
 
-	Entity *entity;							//!< The entity contain
+	Entity* entity; //!< The entity contain
 
 	/*!
 	Deletes the current GraphicController, if it exists.
@@ -66,6 +71,11 @@ private:
 		Creates the labels for the header in tableModel
 	*/
 	void populateEdgeTable();
+	/*!
+		Initalize and prepare VTK Widget for display
+	*/
+	void setupView();
 };
 
 #endif //DIMENSIONDIALOG_H
+
