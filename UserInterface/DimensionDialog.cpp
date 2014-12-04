@@ -4,10 +4,12 @@
 DimensionDialog::DimensionDialog(Entity *entity, QDialog *parent) : QDialog(parent)
 {
 	this->entity = entity;
-	this->selectedEdge = NULL;
+	this->isPopulating = false;
 
 	ui.setupUi(this);
 	setupView();
+
+	connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(released()), this, SLOT(apply()));
 
 	tableModel = new QStandardItemModel(3, 2, this);
 	ui.edgeListTableView->setModel(tableModel);
@@ -40,24 +42,36 @@ void DimensionDialog::populateEdgeTable()
 	int i = 0;
 	for each (Edge* edge in entity->edges)
 	{
-		QStandardItem *row1 = new QStandardItem(QString::number(edge->width1));
-		QStandardItem *row2 = new QStandardItem(QString::number(edge->width2));
-
-		tableModel->setItem(i, 0, row1);
-		tableModel->setItem(i, 1, row2);
+		std::vector<QStandardItem*> row = generateRow(edge);
+		tableModel->setItem(i, 0, row.at(0));
+		tableModel->setItem(i, 1, row.at(1));
 
 		i++;
 	}
 }
 
+std::vector<QStandardItem*> DimensionDialog::generateRow(Edge *edge)
+{
+	std::vector<QStandardItem*> result;
+	QStandardItem *col1 = new QStandardItem(QString::number(edge->width1));
+	QStandardItem *col2 = new QStandardItem(QString::number(edge->width2));
+	result.push_back(col1);
+	result.push_back(col2);
+	return result;
+}
+
 void DimensionDialog::update()
 {
-	if (selectedEdge)
+	if (gModel->selectedEdge)
 	{
+		isPopulating = true;
 		ui.widthGroupBox->setEnabled(true);
 		ui.materialGroupBox->setEnabled(true);
-		ui.widthNode1SpinBox->setValue(selectedEdge->width1);
-		ui.widthNode2SpinBox->setValue(selectedEdge->width2);
+		ui.widthNode1SpinBox->setValue(gModel->selectedEdge->width1);
+		ui.widthNode2SpinBox->setValue(gModel->selectedEdge->width2);
+		
+
+		isPopulating = false;
 	}
 	else
 	{
@@ -68,7 +82,9 @@ void DimensionDialog::update()
 
 void DimensionDialog::accept()
 {
+	//save changes
 
+	this->hide();
 }
 
 void DimensionDialog::reject()
@@ -78,14 +94,14 @@ void DimensionDialog::reject()
 
 void DimensionDialog::apply()
 {
-
+	//save changes
 }
 
 void DimensionDialog::edgeSelected(QModelIndex index)
 {
-	selectedEdge = entity->getEdgesVector()[index.row()];
+	selectedRow = index.row();
 
-	emit selectedEdgeChanged(selectedEdge);
+	emit selectedEdgeChanged(entity->getEdge(selectedRow));
 }
 
 void DimensionDialog::setupView()
@@ -94,6 +110,14 @@ void DimensionDialog::setupView()
 	gController = new EntityGraphicController(this->gModel, ui.GraphicsWidget, this);
 
 	connect(this, SIGNAL(selectedEdgeChanged(Edge*)), gModel, SLOT(setSelectedEdge(Edge*)));
+}
 
-	//connect(this->cModel, &CModel::newDrawModel, (DrawController*)gController, &DrawController::setModel);
+void DimensionDialog::propertyChanged()
+{
+	if (!isPopulating)
+	{
+		gModel->updateValues(ui.widthNode1SpinBox->value(), ui.widthNode2SpinBox->value());
+		tableModel->item(selectedRow, 0)->setText(QString::number(ui.widthNode1SpinBox->value()));
+		tableModel->item(selectedRow, 1)->setText(QString::number(ui.widthNode2SpinBox->value()));
+	}
 }

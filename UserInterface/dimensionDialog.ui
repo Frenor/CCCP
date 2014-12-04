@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>556</width>
-    <height>310</height>
+    <width>496</width>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,9 @@
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
@@ -293,7 +296,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>257</x>
-     <y>293</y>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -309,7 +312,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>325</x>
-     <y>293</y>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -324,8 +327,8 @@
    <slot>edgeSelected(QModelIndex)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>113</x>
-     <y>153</y>
+     <x>81</x>
+     <y>183</y>
     </hint>
     <hint type="destinationlabel">
      <x>266</x>
@@ -333,8 +336,74 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>widthNode1SpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>DimensionDialog</receiver>
+   <slot>propertyChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>586</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widthNode2SpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>DimensionDialog</receiver>
+   <slot>propertyChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>586</x>
+     <y>105</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>507</x>
+     <y>8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>materialsComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>DimensionDialog</receiver>
+   <slot>propertyChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>586</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>531</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>compositeAngleSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>DimensionDialog</receiver>
+   <slot>propertyChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>586</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>526</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>edgeSelected(QModelIndex)</slot>
+  <slot>propertyChanged()</slot>
+  <slot>apply()</slot>
  </slots>
 </ui>

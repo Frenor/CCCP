@@ -10,7 +10,8 @@ EntityGraphicController::EntityGraphicController(EntityGraphicModel *model, QWid
 	gView->GetInteractor()->Initialize();
 
 	setModel(model);
-
+	
+	invalidate();
 }
 
 
@@ -45,10 +46,13 @@ void EntityGraphicController::setModel(EntityGraphicModel *model)
 {
 	this->gModel = model;
 	connect(model, SIGNAL(selectedEdgeChanged(Edge*)), this, SLOT(invalidate()));
+	connect(model, SIGNAL(valuesUpdated()), this, SLOT(invalidate()));
 }
 
 void EntityGraphicController::invalidate()
 {
+	gModel->entity->updatePolygon();
+
 	gView->removeActors();
 	drawPointsAndLines(gModel->getNodes(), gModel->getEdges());
 	drawSurfaces();
@@ -94,5 +98,10 @@ void EntityGraphicController::drawPointsAndLines(std::vector<Node*> nodes, std::
 
 void EntityGraphicController::drawSurfaces()
 {
-
+	//for each (Edge *edge in gModel->entity->edges)
+	//{
+	//
+	//}
+	gModel->entity->getActor()->GetProperty()->SetOpacity(0.8);
+	gView->addActor(gModel->entity->getActor());
 }

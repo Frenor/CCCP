@@ -14,14 +14,20 @@ public:
 	EntityGraphicModel(Entity*);
 	~EntityGraphicModel();
 
-	Entity *entity;
+	Entity *originalEntity;		//<! Pointer to the original entity
+	Entity *entity;				//<! Pointer to the entity we currently are changing
 	Edge *selectedEdge;
 
 	std::vector<Node*> getNodes();
 	std::vector<Edge*> getEdges();
+	/*!
+	Updates all values on the currently active edge, then triggers a redraw
+	*/
+	void updateValues(double, double);
 
 signals:
 	void selectedEdgeChanged(Edge*);
+	void valuesUpdated();
 
 public slots:
 	void setSelectedEdge(Edge*);

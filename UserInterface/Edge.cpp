@@ -4,8 +4,8 @@ Edge::Edge(Node *node1, Node *node2)
 {
 	this->n1 = node1;
 	this->n2 = node2;
-	this->width1 = 0.1;
-	this->width2 = 0.2;
+	this->width1 = 0.1000;
+	this->width2 = 0.1000;
 }
 
 Edge::~Edge()

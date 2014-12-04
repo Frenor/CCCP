@@ -2,6 +2,7 @@
 #ifndef DIMENSIONDIALOG_H
 #define DIMENSIONDIALOG_H
 #include <qstandarditemmodel.h>
+#include <qpushbutton.h>
 
 #include "ui_dimensionDialog.h"
 #include "Entity.h"
@@ -26,7 +27,8 @@ public:
 	EntityGraphicController* gController;	//!< Current active controller for VTK/GraphicsView
 	EntityGraphicModel* gModel;				//!< Model holding the data for the graphic display of edges
 
-	Edge* selectedEdge;
+	int selectedRow;
+	bool isPopulating;						//!< When fields are being populated, ignore change events
 
 signals:
 	/*!
@@ -44,8 +46,7 @@ public slots:
 	*/
 	void reject();
 	/*!
-	Function loops through the seeds and compare the entity's values with the ones in the table.
-	If the difference is larger then a certain precision criterium, the entity is updated.
+	Applies the changes to the active edge.
 	*/
 	void apply();
 	/*!
@@ -57,6 +58,11 @@ public slots:
 	Updates enabled/disabled interface features, field values and passes updated values to the graphic widget
 	*/
 	void update();
+
+	/*!
+	Collects data from all fields and stores them temporarily
+	*/
+	void propertyChanged();
 private:
 	Ui::DimensionDialog ui;
 	QStandardItemModel* tableModel; //!< Model holding the UI table data
@@ -75,6 +81,7 @@ private:
 		Initalize and prepare VTK Widget for display
 	*/
 	void setupView();
+	std::vector<QStandardItem*> generateRow(Edge*);
 };
 
 #endif //DIMENSIONDIALOG_H

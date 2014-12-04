@@ -12,7 +12,7 @@ EntityGraphicModel::~EntityGraphicModel()
 {
 }
 
-void EntityGraphicModel::setSelectedEdge(Edge* selectedEdge)
+void EntityGraphicModel::setSelectedEdge(Edge *selectedEdge)
 {
 	this->selectedEdge = selectedEdge;
 	emit selectedEdgeChanged(selectedEdge);
@@ -32,3 +32,10 @@ std::vector<Edge*> EntityGraphicModel::getEdges()
 	return edges;
 }
 
+void EntityGraphicModel::updateValues(double width1, double width2)
+{
+	selectedEdge->width1 = width1;
+	selectedEdge->width2 = width2;
+
+	emit valuesUpdated();
+}
