@@ -37,6 +37,7 @@ public:
 	bool activeEntityFinalized;		//!< State of active entity. The seed widget is shown if false.
 
 	std::list<Entity*> entities;	//!< Entities in model
+	std::list<Node> nodes;			//!< Nodes in model, they can be shared.
 
 	/*!
 		Loops trough all entities creating a vector of all the nodes
