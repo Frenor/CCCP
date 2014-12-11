@@ -21,6 +21,10 @@ public:
 	EntityBRep(Entity*, Entity*, int, QObject *parent=0);
 	~EntityBRep();
 
+	EntityBRep(const EntityBRep &e, QObject *parent);
+	EntityBRep* clone(QObject *parent) const;
+
+
 	const static int SUBTRACT = 0;
 	const static int ADD = 1;
 

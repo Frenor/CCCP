@@ -17,6 +17,24 @@ EntityBRep::EntityBRep(Entity* e1, Entity* e2, int operation, QObject *parent) :
 	operations.push_back(operation);
 }
 
+EntityBRep::EntityBRep(const EntityBRep &original, QObject *parent) : Entity(parent)
+{
+	this->updateRequired = true;
+
+	for each (Entity *child in original.childEntities)
+	{
+		Entity *e = child->clone(parent);
+		childEntities.push_back(e);
+		connect(e, SIGNAL(entityChanged(Entity*)), this, SLOT(setRequireUpdate()));
+	}
+	operations = original.operations;
+}
+
+EntityBRep* EntityBRep::clone(QObject *parent) const
+{
+	return new EntityBRep(*this, parent);
+}
+
 void EntityBRep::setRequireUpdate()
 {
 	this->updateRequired = true;

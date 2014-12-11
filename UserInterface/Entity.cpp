@@ -5,7 +5,6 @@
 
 Entity::Entity(QObject *parent) : QObject(parent)
 {
-	//Entity(parent, true);
 	this->editable = editable;
 	this->finalized = false;
 	this->closed = false;
@@ -20,16 +19,51 @@ Entity::Entity(QObject *parent) : QObject(parent)
 	points = vtkSmartPointer<vtkPoints>::New();
 }
 
+Entity::Entity(const Entity &original, QObject *parent) : QObject(parent)
+{
+	this->type = original.type;
+	this->name = original.name + " copy";
+	this->editable = original.editable;
+	this->finalized = original.finalized;
+	this->closed = original.closed;
+	this->visible = original.visible;
+	this->hole = original.hole;
+	this->level = original.level;
+	this->active = original.active;
+	this->crossectionType = original.crossectionType;
+	this->material = original.material;
+
+	this->lastSelectedNode = original.lastSelectedNode;
+
+	actor = original.actor;
+	points = original.points;
+	holeActors = original.holeActors;
+
+	seeds = original.seeds;
+	nodes = original.nodes;
+
+	for each (Edge *edge in original.edges)
+	{
+		edges.push_back(edge->clone());
+	}
+
+}
+
 Entity::~Entity()
 {
 	deleteEdges();
-	deleteNodes();
+	//deleteNodes();
 
-	actor->Delete();
-	points->Delete();
+	//actor->Delete();
+	//points->Delete();
 
-	std::cout << "Entity deleted" << std::endl; 
+	std::cout << this->name << ": Entity deleted" << std::endl; 
 }
+
+//Entity* Entity::duplicate(Entity const & e, QObject *parent)
+//{
+//	return e.clone(parent);  // Using virtual constructor idiom.
+//}
 
 bool Entity::isHole()
 {

@@ -14,7 +14,10 @@ public:
 	double width2;	//!< Edge width at Node 1
 
 	Edge(Node*, Node*);
+	Edge(const Edge &);
 	~Edge();
+
+	Edge* clone() const;
 
 	void setWidth(double, double);
 };

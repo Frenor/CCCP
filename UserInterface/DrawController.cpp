@@ -63,6 +63,7 @@ void DrawController::setModel(DrawModel *DrawModel)
 	connect(model, &DrawModel::activeEntityChanged, this, &DrawController::setActiveEntity);
 	connect(model, &DrawModel::entityChanged, this, &DrawController::invalidate);
 	connect(model, &DrawModel::entityDeleted, this, &DrawController::reset);
+	connect(model, &DrawModel::dialogClosed, this, &DrawController::invalidate);
 }
 
 void DrawController::reset()

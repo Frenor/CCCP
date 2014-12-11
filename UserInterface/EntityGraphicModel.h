@@ -14,7 +14,6 @@ public:
 	EntityGraphicModel(Entity*);
 	~EntityGraphicModel();
 
-	Entity *originalEntity;		//<! Pointer to the original entity
 	Entity *entity;				//<! Pointer to the entity we currently are changing
 	Edge *selectedEdge;
 

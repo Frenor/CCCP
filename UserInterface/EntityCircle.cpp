@@ -6,6 +6,16 @@ EntityCircle::EntityCircle(QObject *parent) : Entity(parent)
 	this->name = "Entity-Circle";
 }
 
+EntityCircle::EntityCircle(const EntityCircle &original, QObject *parent) : Entity(original, parent)
+{
+
+}
+
+EntityCircle* EntityCircle::clone(QObject *parent) const
+{
+	return new EntityCircle(*this, parent);
+}
+
 double EntityCircle::getRadius()
 {
 	double dx = getEdge()->x - getCentre()->x;

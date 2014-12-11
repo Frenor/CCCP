@@ -142,12 +142,23 @@ public slots:
 	*/
 	int getActiveDrawType();
 
+	/*!
+		Catching a closing dialog window, forwards to controller
+	*/
+	void dialogClosing();
+
+	/*!
+		Saves changes to a given entity by replacing it with the new one
+	*/
+	void saveEntity(Entity*, Entity*);
+
 signals:
 	void entityCreated(Entity*);		//!< Emitted when a entity is created and added to the model
 	void entityChanged(Entity*);		//!< Emitted when a entity in the model is changed
 	void entityDeleted(Entity*);		//!< Emitted when a entity in the model is removed
 	void activeEntityChanged(Entity*);	//!< Emitted when the active/selected entity is changed
 	void drawTypeChanged(int);			//!< Emitted when the drawing type is changed
+	void dialogClosed();				//!< Emitted when any kind of dialog is closed
 
 private:
 	/*!

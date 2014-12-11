@@ -35,6 +35,15 @@ signals:
 		Signal fired when a new edge is selected
 	*/
 	void selectedEdgeChanged(Edge*);
+	/*!
+	Signal fired when a this dialog is closing
+	*/
+	void close();
+	/*!
+	Signal fired when the user wants to save the Entity
+
+	*/
+	void saveEntity(Entity* newEntity, Entity* oldEntity);
 
 public slots:
 	/*!
@@ -67,7 +76,8 @@ private:
 	Ui::DimensionDialog ui;
 	QStandardItemModel* tableModel; //!< Model holding the UI table data
 
-	Entity* entity; //!< The entity contain
+	Entity* entity;					//!< Entity clone for editing
+	Entity* originalEntity;			//!< The original entity
 
 	/*!
 	Deletes the current GraphicController, if it exists.

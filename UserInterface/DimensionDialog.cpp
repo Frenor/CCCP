@@ -3,7 +3,8 @@
 
 DimensionDialog::DimensionDialog(Entity *entity, QDialog *parent) : QDialog(parent)
 {
-	this->entity = entity;
+	this->originalEntity = entity;
+	this->entity = entity->clone(this);
 	this->isPopulating = false;
 
 	ui.setupUi(this);
@@ -29,7 +30,7 @@ DimensionDialog::~DimensionDialog()
 
 void DimensionDialog::removeActiveGraphicView()
 {
-	std::cout << "DELETED: GraphicsView" << std::endl;
+	std::cout << "DELETED: DimensionDialog-GraphicsView" << std::endl;
 }
 
 void DimensionDialog::populateEdgeTable()
@@ -82,19 +83,21 @@ void DimensionDialog::update()
 
 void DimensionDialog::accept()
 {
-	//save changes
+	apply();
 
 	this->hide();
+	emit close();
 }
 
 void DimensionDialog::reject()
 {
 	this->hide();
+	emit close();
 }
 
 void DimensionDialog::apply()
 {
-	//save changes
+	emit saveEntity(entity, originalEntity);
 }
 
 void DimensionDialog::edgeSelected(QModelIndex index)
