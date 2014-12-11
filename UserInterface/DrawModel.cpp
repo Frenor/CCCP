@@ -180,6 +180,17 @@ void DrawModel::showProperties(Entity* entity)
 	}
 }
 
+void DrawModel::showDimensions(Entity* entity)
+{
+	if (entity || activeEntity)
+	{
+		DimensionDialog dDialog(entity ? entity : activeEntity);
+		connect(&dDialog, SIGNAL(close()), this, SLOT(dialogClosing()));
+		connect(&dDialog, SIGNAL(saveEntity(Entity*, Entity*)), this, SLOT(saveEntity(Entity*, Entity*)));
+		dDialog.exec();
+	}
+}
+
 void DrawModel::setDrawType(int type)
 {
 	this->activeType = type;
@@ -188,4 +199,14 @@ void DrawModel::setDrawType(int type)
 
 int DrawModel::getActiveDrawType() {
 	return activeType;
+}
+
+void DrawModel::dialogClosing()
+{
+	std::cout << "Dialog closing" << std::endl;
+	emit dialogClosed();
+}
+
+void DrawModel::saveEntity(Entity *newEntity, Entity *originalEntity)
+{
 }

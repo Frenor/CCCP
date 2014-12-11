@@ -10,6 +10,16 @@ EntityPoly::EntityPoly(QObject *parent) : Entity(parent)
 	this->lastSelectedNode = NULL;
 }
 
+EntityPoly::EntityPoly(const EntityPoly &original, QObject *parent) : Entity(original, parent)
+{
+
+}
+
+EntityPoly* EntityPoly::clone(QObject *parent) const
+{
+	return new EntityPoly(*this, parent);
+}
+
 void EntityPoly::changeNode(double pos[], int handle)
 {
 	clickNode(handle);		//vtkSeedWidget does not fire it's event on mousePress

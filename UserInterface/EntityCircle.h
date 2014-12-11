@@ -16,6 +16,9 @@ class TEST_LIB EntityCircle : public Entity
 public:
 	EntityCircle(QObject *parent = 0);
 	~EntityCircle(){}
+	EntityCircle(const EntityCircle &e, QObject *parent);
+
+	EntityCircle* clone(QObject *parent) const;
 	/*!
 		Creates a seed if the entity has less than two seeds. \n
 		If first seed; create seed. \n

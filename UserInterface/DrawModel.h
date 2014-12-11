@@ -17,6 +17,7 @@
 #include "EntityBRep.h"
 #include "EntityOperation.h"
 #include "EntityDialog.h"
+#include "DimensionDialog.h"
 
 #include "TestLib.h"
 
@@ -126,6 +127,12 @@ public slots:
 	void showProperties(Entity*);
 
 	/*!
+	Display dimensions window for an entity.
+	The entity to display is either given by an argument or by the active entity set in model.
+	*/
+	void showDimensions(Entity*);
+
+	/*!
 		Sets the drawing type to the given input value
 	*/
 	void setDrawType(int);
@@ -135,12 +142,23 @@ public slots:
 	*/
 	int getActiveDrawType();
 
+	/*!
+		Catching a closing dialog window, forwards to controller
+	*/
+	void dialogClosing();
+
+	/*!
+		Saves changes to a given entity by replacing it with the new one
+	*/
+	void saveEntity(Entity*, Entity*);
+
 signals:
 	void entityCreated(Entity*);		//!< Emitted when a entity is created and added to the model
 	void entityChanged(Entity*);		//!< Emitted when a entity in the model is changed
 	void entityDeleted(Entity*);		//!< Emitted when a entity in the model is removed
 	void activeEntityChanged(Entity*);	//!< Emitted when the active/selected entity is changed
 	void drawTypeChanged(int);			//!< Emitted when the drawing type is changed
+	void dialogClosed();				//!< Emitted when any kind of dialog is closed
 
 private:
 	/*!
