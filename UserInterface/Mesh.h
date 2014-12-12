@@ -25,6 +25,9 @@ public:
 		It copies the nodes and element from the MSHParser as well as the filename.
 	*/
 	Mesh(QString, std::vector<Node>, std::vector<Element>, QObject *parent);
+	Mesh(const Mesh &e, QObject *parent);
+
+	Entity* clone(QObject *parent);
 
 	void changeNode(double pos[], int handle){}
 	void createNode(double pos[], int handle){}
@@ -55,5 +58,6 @@ public:
 private:
 	QString fileName;
 	std::vector<Element> elements;
+	Entity* clone(QObject *parent) const { return NULL; }; //Not implemented
 };
 #endif //MESH_H

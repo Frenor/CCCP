@@ -63,6 +63,7 @@ void DrawController::setModel(DrawModel *DrawModel)
 	connect(model, &DrawModel::activeEntityChanged, this, &DrawController::setActiveEntity);
 	connect(model, &DrawModel::entityChanged, this, &DrawController::invalidate);
 	connect(model, &DrawModel::entityDeleted, this, &DrawController::reset);
+	connect(model, &DrawModel::dialogClosed, this, &DrawController::invalidate);
 }
 
 void DrawController::reset()
@@ -70,7 +71,7 @@ void DrawController::reset()
 	invalidate();
 	if(model->activeEntityFinalized)
 	{
-		widget->setModel(NULL);
+		widget->setModel(nullptr);
 	}
 	else
 	{
@@ -185,7 +186,7 @@ void DrawController::setActiveEntity(Entity *activeEntity)
 {
 	scbk->setEntity(activeEntity);
 	updateInteraction(activeEntity);
-	if (activeEntity != NULL)
+	if (activeEntity)
 	{
 		activeEntity->setActive(true);
 	}

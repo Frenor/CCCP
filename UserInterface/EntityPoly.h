@@ -15,6 +15,9 @@ class TEST_LIB EntityPoly : public Entity
 public:
 	EntityPoly(QObject *parent = 0);
 	~EntityPoly(){}
+	EntityPoly(const EntityPoly &e, QObject *parent);
+
+	EntityPoly* clone(QObject *parent) const;
 
 	/*!
 		Changes one of the entity's nodes based on the node id, and emits entityChanged

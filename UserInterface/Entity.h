@@ -30,7 +30,11 @@ class TEST_LIB Entity : public QObject
 	Q_OBJECT
 public:
 	Entity(QObject *parent);
+	Entity(const Entity &, QObject *parent);
 	~Entity();
+
+	virtual Entity* clone(QObject *parent) const = 0;
+	//Entity* duplicate(Entity const &, QObject*);
 
 	const static int POLYGON = 0;
 	const static int CIRCLE = 1;
@@ -132,7 +136,7 @@ public:
 		Copies edges list into a vector, for use during selection of single edge in list.
 		\return vector<Edge*> containing all edges
 	*/
-	std::vector<Edge*> getEdgesVector();
+	Edge* getEdge(int);
 
 	/*!
 		\return list<Node*> containing all nodes ordered clock wise by their ids.
