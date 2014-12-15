@@ -2,6 +2,7 @@
 #define EDGE_H
 
 #include "Node.h"
+#include "Material.h"
 
 //!	A data object holding edge data
 class Edge
@@ -12,6 +13,8 @@ public:
 
 	double width1;	//!< Edge width at Node 1
 	double width2;	//!< Edge width at Node 1
+
+	Material *material;
 
 	Edge(Node*, Node*);
 	Edge(const Edge &);

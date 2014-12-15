@@ -1,11 +1,13 @@
 #include "DimensionDialog.h"
+#include "DrawModel.h"
 
 
-DimensionDialog::DimensionDialog(Entity *entity, QDialog *parent) : QDialog(parent)
+DimensionDialog::DimensionDialog(Entity *entity, DrawModel *model, QDialog *parent) : QDialog(parent)
 {
 	this->originalEntity = entity;
 	this->entity = entity->clone(this);
-	this->isPopulating = false;
+	this->model = model;
+	this->isPopulating = true;
 
 	ui.setupUi(this);
 	setupView();
@@ -15,6 +17,7 @@ DimensionDialog::DimensionDialog(Entity *entity, QDialog *parent) : QDialog(pare
 	tableModel = new QStandardItemModel(3, 2, this);
 	ui.edgeListTableView->setModel(tableModel);
 	populateEdgeTable();
+	populateMaterialsComboBox();
 
 	connect(this, SIGNAL(selectedEdgeChanged(Edge*)), this, SLOT(update()));
 	
@@ -24,7 +27,7 @@ DimensionDialog::DimensionDialog(Entity *entity, QDialog *parent) : QDialog(pare
 
 DimensionDialog::~DimensionDialog()
 {
-	removeActiveGraphicView(); 
+	removeActiveGraphicView();
 	std::cout << "DELETED: DimensionDialog" << std::endl;
 }
 
@@ -66,12 +69,21 @@ void DimensionDialog::update()
 	if (gModel->selectedEdge)
 	{
 		isPopulating = true;
+
 		ui.widthGroupBox->setEnabled(true);
 		ui.materialGroupBox->setEnabled(true);
 		ui.widthNode1SpinBox->setValue(gModel->selectedEdge->width1);
 		ui.widthNode2SpinBox->setValue(gModel->selectedEdge->width2);
 		
-
+		if (gModel->selectedEdge->material) 
+		{
+			ui.materialsComboBox->setCurrentIndex(model->findMaterialId(gModel->selectedEdge->material));
+		}
+		else
+		{
+			ui.materialsComboBox->setCurrentIndex(-1);
+		}
+		
 		isPopulating = false;
 	}
 	else
@@ -119,8 +131,17 @@ void DimensionDialog::propertyChanged()
 {
 	if (!isPopulating)
 	{
-		gModel->updateValues(ui.widthNode1SpinBox->value(), ui.widthNode2SpinBox->value());
+		gModel->updateValues(ui.widthNode1SpinBox->value(), ui.widthNode2SpinBox->value(), model->materials.at(1));
+
 		tableModel->item(selectedRow, 0)->setText(QString::number(ui.widthNode1SpinBox->value()));
 		tableModel->item(selectedRow, 1)->setText(QString::number(ui.widthNode2SpinBox->value()));
+	}
+}
+
+void DimensionDialog::populateMaterialsComboBox()
+{
+	for each (Material *mat in model->materials)
+	{
+		ui.materialsComboBox->addItem(mat->name);
 	}
 }

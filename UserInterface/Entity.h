@@ -17,7 +17,7 @@
 
 #include "Node.h"
 #include "Edge.h"
-//#include "DrawModel.h"
+#include "Material.h"
 
 #include "TestLib.h"
 
@@ -48,7 +48,7 @@ public:
 
 	//Could be cleaner if extracted to a separate class called "EntityProperty"
 	std::string name;	//!< Name of entity
-	double material;	//!< Material
+	Material* material;	//!< Material
 
 	std::vector<Node *> seeds;	//!< Tangible nodes representing the entity
 	std::list<Node*> nodes;		//!< All nodes in entity
