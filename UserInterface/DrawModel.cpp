@@ -5,11 +5,12 @@ DrawModel::DrawModel(QObject *parent) : QObject(parent)
 	activeEntity = NULL;
 	activeEntityFinalized = true;
 	activeType = Entity::MASSIVE;
+	populateMaterials();
 }
 
 void DrawModel::setActiveInput(Entity *entity)
 {
-	if (activeEntity != NULL)
+	if (activeEntity)
 	{
 		activeEntity->setActive(false); //Deactivate old first
 	}
@@ -184,7 +185,7 @@ void DrawModel::showDimensions(Entity* entity)
 {
 	if (entity || activeEntity)
 	{
-		DimensionDialog dDialog(entity ? entity : activeEntity);
+		DimensionDialog dDialog(entity ? entity : activeEntity, this);
 		connect(&dDialog, SIGNAL(close()), this, SLOT(dialogClosing()));
 		connect(&dDialog, SIGNAL(saveEntity(Entity*, Entity*)), this, SLOT(saveEntity(Entity*, Entity*)));
 		dDialog.exec();
@@ -207,6 +208,26 @@ void DrawModel::dialogClosing()
 	emit dialogClosed();
 }
 
-void DrawModel::saveEntity(Entity *newEntity, Entity *originalEntity)
+//void DrawModel::saveEntity(Entity *newEntity, Entity *originalEntity)
+
+void DrawModel::populateMaterials()
 {
+	for (int i = 0; i < 10; i++)
+	{
+		Material *m = new Material("Material " + std::to_string(i));
+		materials.push_back(m);
+	}
+}
+
+int DrawModel::findMaterialId(Material *mat)
+{
+	int i = -1;
+	if (mat)
+	{
+		std::vector<Material*>::iterator it;
+		it = std::find(materials.begin(), materials.end(), mat);
+		if (it != materials.end())
+			i = std::distance(materials.begin(), it);
+	}
+	return i;
 }

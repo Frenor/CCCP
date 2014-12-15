@@ -22,7 +22,7 @@ public:
 	/*!
 	Updates all values on the currently active edge, then triggers a redraw
 	*/
-	void updateValues(double, double);
+	void updateValues(double, double, Material*);
 
 signals:
 	void selectedEdgeChanged(Edge*);

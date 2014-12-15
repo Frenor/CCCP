@@ -32,10 +32,10 @@ std::vector<Edge*> EntityGraphicModel::getEdges()
 	return edges;
 }
 
-void EntityGraphicModel::updateValues(double width1, double width2)
+void EntityGraphicModel::updateValues(double width1, double width2, Material *mat)
 {
 	selectedEdge->width1 = width1;
 	selectedEdge->width2 = width2;
-
+	selectedEdge->material = mat;
 	emit valuesUpdated();
 }
