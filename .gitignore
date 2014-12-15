@@ -79,4 +79,4 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
-UserInterface/
+perl.exe.stackdump

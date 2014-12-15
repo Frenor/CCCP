@@ -6,6 +6,7 @@ Edge::Edge(Node *node1, Node *node2)
 	this->n2 = node2;
 	this->width1 = 0.1000;
 	this->width2 = 0.1000;
+	this->material = NULL;
 }
 
 Edge::Edge(const Edge &e)
@@ -14,6 +15,7 @@ Edge::Edge(const Edge &e)
 	this->n2 = e.n2;
 	this->width1 = e.width1;
 	this->width2 = e.width2;
+	this->material = e.material;
 }
 
 Edge::~Edge()

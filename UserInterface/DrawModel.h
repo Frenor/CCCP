@@ -11,6 +11,7 @@
 #include "Element.h"
 #include "Edge.h"
 #include "Node.h"
+#include "Material.h"
 #include "EntityPoly.h"
 #include "EntityCircle.h"
 #include "BRepFactory.h"
@@ -31,13 +32,13 @@ class TEST_LIB DrawModel : public QObject
 	Q_OBJECT
 public:
 	explicit DrawModel(QObject *parent);
-	~DrawModel() { std::cout << "DELETED: DrawModel" << std::endl; }
+	~DrawModel() { std::cout << "DELETED: DrawModel" << std::endl; materials.clear(); }
 
 	Entity *activeEntity;			//!< Reference to the selected entity. It is active for input. NULL if none selected
 	bool activeEntityFinalized;		//!< State of active entity. The seed widget is shown if false.
 
 	std::list<Entity*> entities;	//!< Entities in model
-
+	std::vector<Material*> materials;	//!< Materials available in model
 	/*!
 		Loops trough all entities creating a vector of all the nodes
 		\return vector<Node*> All nodes in entities
@@ -92,6 +93,11 @@ public:
 		\return bool True if NOT active entity
 	*/
 	bool isNotActiveEntity(Entity *);
+	/*!
+		Finds the current ID of the provided material
+		\return int id of material
+	*/
+	int findMaterialId(Material*);
 
 public slots:
 	/*!
@@ -150,7 +156,7 @@ public slots:
 	/*!
 		Saves changes to a given entity by replacing it with the new one
 	*/
-	void saveEntity(Entity*, Entity*);
+	//void saveEntity(Entity*, Entity*);
 
 signals:
 	void entityCreated(Entity*);		//!< Emitted when a entity is created and added to the model
@@ -166,6 +172,10 @@ private:
 		The level is used inside the entity, before it is drawn, when its actor's position is calculated.
 	*/
 	void updateEntityLevels();
+	/*!
+		Temporary function used to fill materials list, awaiting 
+	*/
+	void populateMaterials();
 	int activeType;						//!< Active drawing type
 };
 

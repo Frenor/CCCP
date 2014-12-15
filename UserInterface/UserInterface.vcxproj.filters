@@ -335,23 +335,26 @@
     <ClCompile Include="EntityDialog.cpp">
       <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
     </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="EntityGraphicController.cpp">
-      <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EntityGraphicModel.cpp">
-      <Filter>Source Files\Models</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_EntityGraphicController.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_EntityGraphicController.cpp">
-      <Filter>Generated Files\Release</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_EntityGraphicModel.cpp">
-      <Filter>Generated Files\Debug</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EntityGraphicController.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_EntityGraphicModel.cpp">
-      <Filter>Generated Files\Release</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -455,10 +458,13 @@
       <Filter>Header Files\ViewController\Dialogs</Filter>
     </CustomBuild>
     <CustomBuild Include="EntityGraphicController.h">
-      <Filter>Header Files\ViewController\Dialogs\DimensionDialog</Filter>
+      <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="EntityGraphicModel.h">
-      <Filter>Header Files\Models</Filter>
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Material.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

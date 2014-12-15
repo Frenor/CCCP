@@ -9,6 +9,8 @@
 #include "EntityGraphicController.h"
 #include "EntityGraphicModel.h"
 
+class DrawModel;
+
 //! Controller for the propery dialog box used to spesify edge properties. 
 
 /*!
@@ -21,9 +23,10 @@ class DimensionDialog : public QDialog
 	Q_OBJECT
 
 public:
-	DimensionDialog(Entity*, QDialog* parent = 0);
+	DimensionDialog(Entity*, DrawModel*, QDialog* parent = 0);
 	~DimensionDialog();
 
+	DrawModel* model;
 	EntityGraphicController* gController;	//!< Current active controller for VTK/GraphicsView
 	EntityGraphicModel* gModel;				//!< Model holding the data for the graphic display of edges
 
@@ -87,6 +90,10 @@ private:
 		Creates the labels for the header in tableModel
 	*/
 	void populateEdgeTable();
+	/*!
+		Adds the materials to the materials combobox
+	*/
+	void populateMaterialsComboBox();
 	/*!
 		Initalize and prepare VTK Widget for display
 	*/
