@@ -38,12 +38,9 @@ public:
 	bool activeEntityFinalized;		//!< State of active entity. The seed widget is shown if false.
 
 	std::list<Entity*> entities;	//!< Entities in model
-<<<<<<< HEAD
 	std::list<Node> nodes;			//!< Nodes in model, they can be shared.
 
-=======
 	std::vector<Material*> materials;	//!< Materials available in model
->>>>>>> feature/DimensionDialog/Edge_materials
 	/*!
 		Loops trough all entities creating a vector of all the nodes
 		\return vector<Node*> All nodes in entities
