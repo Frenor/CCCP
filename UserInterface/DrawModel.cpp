@@ -185,9 +185,9 @@ void DrawModel::showDimensions(Entity* entity)
 {
 	if (entity || activeEntity)
 	{
-		DimensionDialog dDialog(entity ? entity : activeEntity, this);
+		DimensionDialog dDialog(entity ? &entity : &activeEntity, this);
 		connect(&dDialog, SIGNAL(close()), this, SLOT(dialogClosing()));
-		connect(&dDialog, SIGNAL(saveEntity(Entity*, Entity*)), this, SLOT(saveEntity(Entity*, Entity*)));
+		connect(&dDialog, SIGNAL(saveEntity(Entity*, Entity**)), this, SLOT(saveEntity(Entity*, Entity**)));
 		dDialog.exec();
 	}
 }
@@ -208,7 +208,12 @@ void DrawModel::dialogClosing()
 	emit dialogClosed();
 }
 
-//void DrawModel::saveEntity(Entity *newEntity, Entity *originalEntity)
+void DrawModel::saveEntity(Entity *newEntity, Entity **originalEntity)
+{
+	removeEntity(*originalEntity);
+	addEntity(newEntity);
+}
+
 
 void DrawModel::populateMaterials()
 {

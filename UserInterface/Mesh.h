@@ -58,6 +58,6 @@ public:
 private:
 	QString fileName;
 	std::vector<Element> elements;
-	Entity* clone(QObject *parent) const { return NULL; }; //Not implemented
+	Mesh* clone(QObject *parent) const { return NULL; }; //Not implemented
 };
 #endif //MESH_H

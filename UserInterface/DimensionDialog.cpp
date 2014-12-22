@@ -2,10 +2,11 @@
 #include "DrawModel.h"
 
 
-DimensionDialog::DimensionDialog(Entity *entity, DrawModel *model, QDialog *parent) : QDialog(parent)
+DimensionDialog::DimensionDialog(Entity **entity, DrawModel *model, QDialog *parent) : QDialog(parent)
 {
 	this->originalEntity = entity;
-	this->entity = entity->clone(this);
+	Entity *ptr = *entity;
+	this->entity = ptr->clone(parent);
 	this->model = model;
 	this->isPopulating = true;
 
@@ -95,7 +96,7 @@ void DimensionDialog::update()
 
 void DimensionDialog::accept()
 {
-	apply();
+	emit saveEntity(entity, originalEntity);
 
 	this->hide();
 	emit close();
@@ -109,7 +110,7 @@ void DimensionDialog::reject()
 
 void DimensionDialog::apply()
 {
-	emit saveEntity(entity, originalEntity);
+	//Do nothing, saves only on "OK"
 }
 
 void DimensionDialog::edgeSelected(QModelIndex index)

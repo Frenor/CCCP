@@ -30,10 +30,10 @@ class TEST_LIB Entity : public QObject
 	Q_OBJECT
 public:
 	Entity(QObject *parent);
-	Entity(const Entity &, QObject *parent);
+	Entity(const Entity &, QObject *parent = 0);
 	~Entity();
 
-	virtual Entity* clone(QObject *parent) const = 0;
+	virtual Entity* clone(QObject *parent = 0) const = 0;
 	//Entity* duplicate(Entity const &, QObject*);
 
 	const static int POLYGON = 0;

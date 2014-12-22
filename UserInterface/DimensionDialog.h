@@ -23,7 +23,7 @@ class DimensionDialog : public QDialog
 	Q_OBJECT
 
 public:
-	DimensionDialog(Entity*, DrawModel*, QDialog* parent = 0);
+	DimensionDialog(Entity**, DrawModel*, QDialog* parent = 0);
 	~DimensionDialog();
 
 	DrawModel* model;
@@ -46,7 +46,7 @@ signals:
 	Signal fired when the user wants to save the Entity
 
 	*/
-	void saveEntity(Entity* newEntity, Entity* oldEntity);
+	void saveEntity(Entity* newEntity, Entity** oldEntity);
 
 public slots:
 	/*!
@@ -80,7 +80,7 @@ private:
 	QStandardItemModel* tableModel; //!< Model holding the UI table data
 
 	Entity* entity;					//!< Entity clone for editing
-	Entity* originalEntity;			//!< The original entity
+	Entity** originalEntity;			//!< The original entity
 
 	/*!
 	Deletes the current GraphicController, if it exists.

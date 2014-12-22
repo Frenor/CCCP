@@ -156,9 +156,9 @@ public slots:
 	void dialogClosing();
 
 	/*!
-		Saves changes to a given entity by replacing it with the new one
+		Saves changes to the second entity by replacing it with the first one
 	*/
-	//void saveEntity(Entity*, Entity*);
+	void saveEntity(Entity*, Entity**);
 
 signals:
 	void entityCreated(Entity*);		//!< Emitted when a entity is created and added to the model

@@ -22,7 +22,6 @@ Entity::Entity(QObject *parent) : QObject(parent)
 Entity::Entity(const Entity &original, QObject *parent) : QObject(parent)
 {
 	this->type = original.type;
-	this->name = original.name + " copy";
 	this->editable = original.editable;
 	this->finalized = original.finalized;
 	this->closed = original.closed;
