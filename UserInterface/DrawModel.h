@@ -178,6 +178,10 @@ private:
 		Temporary function used to fill materials list, awaiting 
 	*/
 	void populateMaterials();
+	/*!
+		Sets given entity to a finalized stated, closes a massive crossection if needed
+	*/
+	void finalizeEntity(Entity*);
 	int activeType;						//!< Active drawing type
 };
 

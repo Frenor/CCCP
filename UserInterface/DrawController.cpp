@@ -134,7 +134,7 @@ void DrawController::drawSurfaces()
 	for each (Entity *entity in model->entities)
 	{
 		//std::cout << "SurfEntity: " << entity->finalized << " : " << model->isNotActiveEntity(entity) << " : " << model->activeEntity << std::endl;
-		if(entity->isClosed())
+		if(entity->isFinalized())
 		{
 			createSurface(entity);
 		}

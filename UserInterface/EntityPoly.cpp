@@ -38,8 +38,12 @@ void EntityPoly::clickNode(int handle)
 {
 	if(handle == 0 && nodes.size() > 1 && !isClosed())
 	{
-		close();
-		emit entityFinalized();
+		if (crossectionType != Entity::THINWALLED)
+		{
+			close();
+			setIsFinalized(true);
+			emit entityFinalized();
+		}
 	}
 }
 
