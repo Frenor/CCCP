@@ -220,7 +220,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="Done">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -1005,7 +1005,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>Done</sender>
    <signal>clicked()</signal>
    <receiver>GraphicsWidget</receiver>
    <slot>enterPressed()</slot>

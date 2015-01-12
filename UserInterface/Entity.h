@@ -206,6 +206,11 @@ public:
 	*/
 	bool isVisible();
 
+	/*!
+		\return true if entity is finalized
+	*/
+	bool isFinalized();
+
 signals:
 		
 	/*!

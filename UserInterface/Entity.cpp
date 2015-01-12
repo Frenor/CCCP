@@ -272,11 +272,12 @@ void Entity::addNode(double pos[], int handle)
 
 void Entity::close()
 {
-	if (!closed && !isEmpty()){
+	if (!closed && !isEmpty())
+	{
 		Node *n1 = nodes.back();
 		Node *n2 = nodes.front();
 
-		createEdge(n1,n2);
+		createEdge(n1, n2);
 
 		closed = true;
 	}
@@ -392,4 +393,9 @@ void Entity::setActive(bool active)
 void Entity::setCrossectionType(int crossectionType)
 {
 	this->crossectionType = crossectionType;
+}
+
+bool Entity::isFinalized()
+{
+	return finalized;
 }

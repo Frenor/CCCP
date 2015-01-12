@@ -93,10 +93,7 @@ void DrawModel::uiModeChanged()
 	setActiveEntityNULL();
 	for each (Entity *entity in entities)
 	{
-		if(!entity->isClosed())
-		{
-			entity->close();
-		}
+		finalizeEntity(entity);
 	}
 }
 
@@ -118,9 +115,19 @@ void DrawModel::finalizeActiveEntity()
 {
 	if(activeEntity)
 	{
-		activeEntity->close();
-		setActiveEntityNULL();
+		finalizeEntity(activeEntity);
 	}
+}
+
+void DrawModel::finalizeEntity(Entity *entity)
+{
+	if (entity->crossectionType == Entity::MASSIVE)
+	{
+		entity->close();
+	}
+
+	entity->setIsFinalized(true);
+	setActiveEntityNULL();
 }
 
 void DrawModel::setActiveEntityNULL()
