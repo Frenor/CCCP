@@ -57,7 +57,7 @@ void AbstractExport::createLineloops(std::list<Entity*> entities)
 	int entityNumber = 0;
 	for each (Entity* entity in entities)
 	{
-		if(entity->edges.size() > 0){
+		if(entity->edges.size() > 0 && entity->isClosed()){
 			std::vector<int> lineloop;
 			for each (Edge *edge in entity->getEdgesOrderedClockWise())
 			{
@@ -65,7 +65,10 @@ void AbstractExport::createLineloops(std::list<Entity*> entities)
 			}
 
 			lineloops.push_back(lineloop);
-			surfaces.push_back(entityNumber++);
+			if (entity->crossectionType != Entity::THINWALLED)
+			{
+				surfaces.push_back(entityNumber++);
+			}
 		}
 	}
 }
