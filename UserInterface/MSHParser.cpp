@@ -152,17 +152,17 @@ bool MSHParser::readElements(std::ifstream& in, std::vector<Element> *elements, 
 	{
 		readInt(in, &elementNumber);
 		readInt(in, &type);
-		if(type != 2)
+		switch (type)
 		{
+		case 1: //2-node line
 			getline(in, line);
-		}
-		else
-		{
+			break;
+		case 2: //3-node triangle.
 			Element element;
-			
+
 			readInt(in, &args);
 			readDouble(in, &element.material);
-			for (int i = 0; i < args-1; i++)
+			for (int i = 0; i < args - 1; i++)
 			{
 				readInt(in, &unusedTag);
 			}
@@ -171,9 +171,9 @@ bool MSHParser::readElements(std::ifstream& in, std::vector<Element> *elements, 
 			readInt(in, &n2);
 			readInt(in, &n3);
 
-			element.i = &nodes[n1-1];
-			element.j = &nodes[n2-1];
-			element.k = &nodes[n3-1];
+			element.i = &nodes[n1 - 1];
+			element.j = &nodes[n2 - 1];
+			element.k = &nodes[n3 - 1];
 
 			element.x1 = (*element.i).x;
 			element.x2 = (*element.j).x;
@@ -188,6 +188,10 @@ bool MSHParser::readElements(std::ifstream& in, std::vector<Element> *elements, 
 
 			(*elements).push_back(element);
 			validElements++;
+			break;
+		default:
+			getline(in, line);
+			break;
 		}
 	}
 	*nElement = validElements;
