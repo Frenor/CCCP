@@ -678,6 +678,7 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
@@ -695,6 +696,11 @@
   <action name="actionSave">
    <property name="text">
     <string>Save</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>
@@ -845,8 +851,8 @@
    <slot>setResultMode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1023</x>
-     <y>148</y>
+     <x>93</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>854</x>
@@ -861,8 +867,8 @@
    <slot>setMeshMode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>775</x>
-     <y>128</y>
+     <x>72</x>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
      <x>736</x>
@@ -877,8 +883,8 @@
    <slot>setMinElementSize()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>95</y>
+     <x>111</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -893,8 +899,8 @@
    <slot>setMaxElementSize()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>101</x>
-     <y>125</y>
+     <x>104</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -909,8 +915,8 @@
    <slot>setCustomArguments()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>475</x>
-     <y>120</y>
+     <x>132</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>418</x>
@@ -925,8 +931,8 @@
    <slot>resetMeshOptions()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>132</y>
+     <x>111</x>
+     <y>90</y>
     </hint>
     <hint type="destinationlabel">
      <x>303</x>
@@ -941,8 +947,8 @@
    <slot>setMeshVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>47</x>
-     <y>100</y>
+     <x>50</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -957,8 +963,8 @@
    <slot>setResultVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>63</x>
-     <y>115</y>
+     <x>66</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>234</x>
@@ -977,8 +983,8 @@
      <y>390</y>
     </hint>
     <hint type="destinationlabel">
-     <x>57</x>
-     <y>93</y>
+     <x>60</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
@@ -993,8 +999,8 @@
      <y>390</y>
     </hint>
     <hint type="destinationlabel">
-     <x>57</x>
-     <y>116</y>
+     <x>60</x>
+     <y>91</y>
     </hint>
    </hints>
   </connection>
@@ -1078,6 +1084,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAbout</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindowClass</receiver>
+   <slot>showAbout()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>518</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>meshVisible(bool)</signal>
@@ -1101,6 +1123,7 @@
   <slot>setResultVisible(bool)</slot>
   <slot>setDrawTypeThin(bool)</slot>
   <slot>setDrawTypeMassive(bool)</slot>
+  <slot>showAbout()</slot>
  </slots>
  <buttongroups>
   <buttongroup name="drawingTypeButtonGroup"/>

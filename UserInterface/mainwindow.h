@@ -9,6 +9,7 @@
 #include <vtksys\SystemTools.hxx>
 
 #include "ui_mainwindow.h"
+#include "AboutDialog.h"
 
 #include "MSHParser.h"
 #include "VTKParser.h"
@@ -167,6 +168,10 @@ public slots:
 	Used to set the correct value in the drawing type selector
 	*/
 	void thinwalledEntitySelectedSlot(bool);
+	/*!
+	Signal from mainwindow.ui, show the about window.
+	*/
+	void showAbout();
 signals:
 	/*!
 		Signal emitted when setMeshVisible is called by the UI.

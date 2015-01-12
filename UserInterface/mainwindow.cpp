@@ -199,3 +199,8 @@ void MainWindow::thinwalledEntitySelectedSlot(bool selected)
 {
 	emit thinwalledEntitySelectedSig(selected);
 }
+void MainWindow::showAbout()
+{
+	AboutDialog *aDialog = new AboutDialog;
+	aDialog->show();
+}
