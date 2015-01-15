@@ -148,6 +148,7 @@
     <ClCompile Include="AboutDialog.cpp" />
     <ClCompile Include="BREPFactory.cpp" />
     <ClCompile Include="CModel.cpp" />
+    <ClCompile Include="DatExport.cpp" />
     <ClCompile Include="DimensionDialog.cpp" />
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="DrawModel.cpp" />
@@ -630,6 +631,7 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DTEST_EXPORT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
     </CustomBuild>
     <ClInclude Include="AboutDialog.h" />
+    <ClInclude Include="DatExport.h" />
     <ClInclude Include="GeneratedFiles\ui_aboutDialog.h" />
     <ClInclude Include="GeneratedFiles\ui_dimensionDialog.h" />
     <ClInclude Include="GeneratedFiles\ui_entityDialog.h" />

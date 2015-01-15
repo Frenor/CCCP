@@ -84,7 +84,7 @@ void EntityBRep::updateResultEntities()
 	}
 
 	updateRequired = false;
-	bfactory.~BRepFactory();
+	//bfactory.~BRepFactory();
 }
 
 vtkSmartPointer<vtkPolyData> EntityBRep::getPolyData()

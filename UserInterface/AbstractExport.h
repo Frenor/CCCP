@@ -40,6 +40,7 @@ protected:
 	std::vector<std::vector<int>> lineloops;	//!< Line loops/wires in model
 	std::vector<int> surfaces;					//!< Surfaces in the model
 	std::map<Node*, int> nodeLookupTable;		//!< Table containing mapping a node reference to its global number.
+	std::vector<Material*> usedMaterials;		//!< All used top level materials
 
 	/*!
 		Find the global node number given a node reference, 
@@ -63,6 +64,12 @@ private:
 		and uses the map with node reference and numbering to create the loops.
 	*/
 	void createLineloops(std::list<Entity*>);
+
+	/*!
+		All referenced directly referenced materials, referenced by unique id.
+		Will also find all sub-materials for export.
+	*/
+	void findUsedMaterials(std::list<Entity*>);
 
 	virtual void write() = 0;
 };
