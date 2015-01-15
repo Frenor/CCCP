@@ -77,7 +77,7 @@ void CModel::executeMeshProcess()
 {
 	if(meshOutOfSync)
 	{
-		exportDataModel(tmpPath + "tmp_file.geo");
+		exportDataModel(tmpPath + "tmp_file");
 
 		ExternalProcessHandler *eProc = new ExternalProcessHandler(this);
 		connect(eProc, SIGNAL(finished(QString)), this, SLOT(openMSHFile(QString)));
@@ -114,9 +114,13 @@ void CModel::moveToTemporaryFolder(QString filename, QString tmpFileEnding)
 
 void CModel::exportDataModel(QString fileName)
 {
-	GeoExport fileExport(fileName.toStdString(), this->drawModel);
-	fileExport.write();
-	fileExport.save();
+	GeoExport geoFileExport(fileName.toStdString() + ".geo", this->drawModel);
+	geoFileExport.write();
+	geoFileExport.save();
+
+	DatExport datFileExport(fileName.toStdString() + ".dat", this->drawModel);
+	datFileExport.write();
+	datFileExport.save();
 
 	this->fileName = fileName;
 }

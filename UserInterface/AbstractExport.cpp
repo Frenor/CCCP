@@ -5,6 +5,7 @@ AbstractExport::AbstractExport(DrawModel *model)
 	createGlobalNodes(model->getAllNodes());
 	createGlobalEdges(model->getAllEdges());
 	createLineloops(model->entities);
+	findUsedMaterials(model->entities);
 }
 
 AbstractExport::~AbstractExport()
@@ -71,4 +72,11 @@ void AbstractExport::createLineloops(std::list<Entity*> entities)
 			}
 		}
 	}
+}
+
+void AbstractExport::findUsedMaterials(std::list<Entity*> entities)
+{
+	//find materials in entities
+
+	//find materials in edges
 }

@@ -354,9 +354,13 @@ std::list<Edge*> Entity::reOrderEdges()
 	for each (Edge* edge in edges)
 	{
 		Node *oldN1 = edge->n1;
-		
+		double oldW1 = edge->width1;
+
 		edge->n1 = edge->n2;
 		edge->n2 = oldN1;
+
+		edge->width1 = edge->width2;
+		edge->width2 = oldW1;
 
 		orderedEdges.push_front(edge);
 	}

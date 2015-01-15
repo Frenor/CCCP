@@ -93,6 +93,9 @@
     <Filter Include="Header Files\ViewController\Dialogs\DimensionDialog">
       <UniqueIdentifier>{59764b2d-3662-436f-b8f0-63fbfca650d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ViewController\Dialogs\DimensionDialog">
+      <UniqueIdentifier>{bed78d61-fed4-4be0-8fcd-b94ef54770e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -323,9 +326,6 @@
     <ClCompile Include="Edge.cpp">
       <Filter>Source Files\DO</Filter>
     </ClCompile>
-    <ClCompile Include="DimensionDialog.cpp">
-      <Filter>Source Files\ViewController\Dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_DimensionDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -347,23 +347,23 @@
     <ClCompile Include="GeneratedFiles\Release\moc_EntityGraphicModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TriangleElement.cpp">
-      <Filter>Source Files\DO</Filter>
+    <ClCompile Include="AboutDialog.cpp">
+      <Filter>Source Files\ViewController\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="LineElement.cpp">
-      <Filter>Source Files\DO</Filter>
+    <ClCompile Include="DatExport.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="DimensionDialog.cpp">
+      <Filter>Source Files\ViewController\Dialogs\DimensionDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityGraphicController.cpp">
+      <Filter>Source Files\ViewController\Dialogs\DimensionDialog</Filter>
     </ClCompile>
     <ClCompile Include="EntityGraphicModel.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="EntityGraphicController.cpp">
-      <Filter>Source Files\ViewController\Dialogs\EntityDialog</Filter>
-    </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>Source Files\DO</Filter>
-    </ClCompile>
-    <ClCompile Include="AboutDialog.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -466,14 +466,14 @@
     <CustomBuild Include="EntityDialog.h">
       <Filter>Header Files\ViewController\Dialogs</Filter>
     </CustomBuild>
-    <CustomBuild Include="EntityGraphicModel.h">
-      <Filter>Header Files\Models</Filter>
+    <CustomBuild Include="aboutDialog.ui">
+      <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="EntityGraphicController.h">
       <Filter>Header Files\ViewController\Dialogs\DimensionDialog</Filter>
     </CustomBuild>
-    <CustomBuild Include="aboutDialog.ui">
-      <Filter>Form Files</Filter>
+    <CustomBuild Include="EntityGraphicModel.h">
+      <Filter>Header Files\Models</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -516,20 +516,17 @@
     <ClInclude Include="GeneratedFiles\ui_dimensionDialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="LineElement.h">
-      <Filter>Header Files\DO</Filter>
+    <ClInclude Include="DatExport.h">
+      <Filter>Header Files\IO</Filter>
     </ClInclude>
-    <ClInclude Include="TriangleElement.h">
-      <Filter>Header Files\DO</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Header Files\DO</Filter>
+    <ClInclude Include="AboutDialog.h">
+      <Filter>Header Files\ViewController\Dialogs</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_aboutDialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="AboutDialog.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files\DO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
