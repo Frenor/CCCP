@@ -2,7 +2,7 @@
 
 GeoExport::GeoExport(std::string fileName, DrawModel* model) : AbstractExport(model)
 {
-	std::cout << "OpenFile" << std::endl;
+	std::cout << "OpenGeoFile" << std::endl;
 	open(fileName);
 }
 

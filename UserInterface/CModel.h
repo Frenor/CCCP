@@ -8,6 +8,7 @@
 #include "DrawModel.h"
 #include "ResultModel.h"
 #include "GeoExport.h"
+#include "DatExport.h"
 #include "MSHParser.h"
 #include "ExternalProcessHandler.h"
 
