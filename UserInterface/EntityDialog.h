@@ -2,6 +2,7 @@
 #ifndef ENTITYDIALOG_H
 #define ENTITYDIALOG_H
 #include <qstandarditemmodel.h>
+#include <qpushbutton.h>
 
 #include "ui_entityDialog.h"
 #include "Entity.h"

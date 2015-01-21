@@ -106,6 +106,11 @@ public:
 
         segmentSpinBox = new QSpinBox(EntityProperties);
         segmentSpinBox->setObjectName(QStringLiteral("segmentSpinBox"));
+        segmentSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        segmentSpinBox->setReadOnly(false);
+        segmentSpinBox->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
+        segmentSpinBox->setMaximum(10000);
+        segmentSpinBox->setDisplayIntegerBase(10);
 
         verticalLayout_4->addWidget(segmentSpinBox);
 
@@ -145,7 +150,6 @@ public:
         retranslateUi(EntityProperties);
         QObject::connect(buttonBox, SIGNAL(accepted()), EntityProperties, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), EntityProperties, SLOT(reject()));
-        QObject::connect(buttonBox, SIGNAL(clicked(QAbstractButton*)), EntityProperties, SLOT(apply()));
 
         QMetaObject::connectSlotsByName(EntityProperties);
     } // setupUi

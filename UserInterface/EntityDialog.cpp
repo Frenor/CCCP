@@ -5,6 +5,8 @@ EntityDialog::EntityDialog(QDialog *parent) : QDialog(parent)
 	ui.setupUi(this);
 	fillMaterialList();
 
+	connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(released()), this, SLOT(apply()));
+
 	tableModel = new QStandardItemModel(3,2,this);
 	ui.tableView->setModel(tableModel);
 }

@@ -80,7 +80,23 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="segmentSpinBox"/>
+        <widget class="QSpinBox" name="segmentSpinBox">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::UpDownArrows</enum>
+         </property>
+         <property name="maximum">
+          <number>10000</number>
+         </property>
+         <property name="displayIntegerBase">
+          <number>10</number>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="materialLabel">
@@ -156,22 +172,6 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>clicked(QAbstractButton*)</signal>
-   <receiver>EntityProperties</receiver>
-   <slot>apply()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>362</x>
-     <y>300</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>338</x>
-     <y>269</y>
     </hint>
    </hints>
   </connection>
