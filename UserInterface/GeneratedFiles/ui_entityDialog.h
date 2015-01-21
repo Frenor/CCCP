@@ -22,6 +22,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 
@@ -39,6 +40,8 @@ public:
     QTableView *tableView;
     QFrame *line;
     QVBoxLayout *verticalLayout_4;
+    QLabel *segmentLabel;
+    QSpinBox *segmentSpinBox;
     QLabel *materialLabel;
     QComboBox *comboBox;
     QSpacerItem *verticalSpacer;
@@ -96,6 +99,16 @@ public:
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        segmentLabel = new QLabel(EntityProperties);
+        segmentLabel->setObjectName(QStringLiteral("segmentLabel"));
+
+        verticalLayout_4->addWidget(segmentLabel);
+
+        segmentSpinBox = new QSpinBox(EntityProperties);
+        segmentSpinBox->setObjectName(QStringLiteral("segmentSpinBox"));
+
+        verticalLayout_4->addWidget(segmentSpinBox);
+
         materialLabel = new QLabel(EntityProperties);
         materialLabel->setObjectName(QStringLiteral("materialLabel"));
 
@@ -142,6 +155,7 @@ public:
         EntityProperties->setWindowTitle(QApplication::translate("EntityProperties", "Entity Properties", 0));
         EntityNameLabel->setText(QApplication::translate("EntityProperties", "EntityName", 0));
         nodesLabel->setText(QApplication::translate("EntityProperties", "Nodes:", 0));
+        segmentLabel->setText(QApplication::translate("EntityProperties", "Number of segments:", 0));
         materialLabel->setText(QApplication::translate("EntityProperties", "Materials:", 0));
     } // retranslateUi
 

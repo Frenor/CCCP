@@ -24,7 +24,7 @@ public:
 		Creates a Mesh entity that is drawed in ResultController. 
 		It copies the nodes and element from the MSHParser as well as the filename.
 	*/
-	Mesh(QString, std::vector<Node>, std::vector<Element>, QObject *parent);
+	Mesh(QString, std::vector<Node>, std::vector<Element*>, QObject *parent);
 	Mesh(const Mesh &e, QObject *parent);
 
 	Entity* clone(QObject *parent);
@@ -32,7 +32,7 @@ public:
 	void changeNode(double pos[], int handle){}
 	void createNode(double pos[], int handle){}
 	std::vector<Node*> getSeeds(){return seeds; }
-	std::vector<Element> getElements();
+	std::vector<Element*> getElements();
 	//Entity* getEntity();
 
 	/*!
@@ -57,7 +57,7 @@ public:
 
 private:
 	QString fileName;
-	std::vector<Element> elements;
+	std::vector<Element*> elements;
 	Mesh* clone(QObject *parent) const { return NULL; }; //Not implemented
 };
 #endif //MESH_H

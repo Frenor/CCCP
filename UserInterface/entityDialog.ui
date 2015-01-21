@@ -73,6 +73,16 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
+        <widget class="QLabel" name="segmentLabel">
+         <property name="text">
+          <string>Number of segments:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="segmentSpinBox"/>
+       </item>
+       <item>
         <widget class="QLabel" name="materialLabel">
          <property name="text">
           <string>Materials:</string>

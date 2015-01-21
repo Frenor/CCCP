@@ -285,7 +285,15 @@ void Entity::close()
 
 void Entity::createEdge(Node *node1, Node *node2)
 {
-	Edge *edge = new Edge(node1, node2);
+	Edge *edge;
+	if (crossectionType == Entity::THINWALLED)
+	{
+		edge = new Edge(node1, node2, 0.1, 0.1);
+	}
+	else
+	{
+		edge = new Edge(node1, node2);
+	}
 	edges.push_back(edge);
 
 	//std::cout << "Edge created [ " << edge->n1->id << ", " << edge->n2->id << "]" << std::endl;
