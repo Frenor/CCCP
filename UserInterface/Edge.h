@@ -17,6 +17,7 @@ public:
 	Material *material;
 
 	Edge(Node*, Node*);
+	Edge(Node*, Node*, double, double);
 	Edge(const Edge &);
 	~Edge();
 

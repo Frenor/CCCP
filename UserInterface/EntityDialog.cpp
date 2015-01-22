@@ -5,6 +5,8 @@ EntityDialog::EntityDialog(QDialog *parent) : QDialog(parent)
 	ui.setupUi(this);
 	fillMaterialList();
 
+	connect(ui.buttonBox->button(QDialogButtonBox::Apply), SIGNAL(released()), this, SLOT(apply()));
+
 	tableModel = new QStandardItemModel(3,2,this);
 	ui.tableView->setModel(tableModel);
 }
@@ -14,6 +16,15 @@ void EntityDialog::setDataSource(Entity* entity)
 	this->entity = entity;
 
 	ui.EntityNameLabel->setText(entity->name.c_str());
+	if (entity->type == Entity::CIRCLE)
+	{
+		ui.segmentSpinBox->setValue(dynamic_cast<EntityCircle*>(entity)->segmentNum);
+	}
+	else
+	{
+		ui.segmentLabel->deleteLater();
+		ui.segmentSpinBox->deleteLater();
+	}
 
 	tableModel->clear();
 	createHeaderLabels();
@@ -83,6 +94,11 @@ void EntityDialog::apply()
 			seedNode->y = y;
 			updateRequired = true;
 		}
+	}
+	if (entity->type == Entity::CIRCLE)
+	{
+		dynamic_cast<EntityCircle*>(entity)->segmentNum = ui.segmentSpinBox->value();
+		updateRequired = true;
 	}
 
 	if(updateRequired)

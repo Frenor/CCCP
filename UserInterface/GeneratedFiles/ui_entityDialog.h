@@ -22,6 +22,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 
@@ -39,6 +40,8 @@ public:
     QTableView *tableView;
     QFrame *line;
     QVBoxLayout *verticalLayout_4;
+    QLabel *segmentLabel;
+    QSpinBox *segmentSpinBox;
     QLabel *materialLabel;
     QComboBox *comboBox;
     QSpacerItem *verticalSpacer;
@@ -96,6 +99,21 @@ public:
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        segmentLabel = new QLabel(EntityProperties);
+        segmentLabel->setObjectName(QStringLiteral("segmentLabel"));
+
+        verticalLayout_4->addWidget(segmentLabel);
+
+        segmentSpinBox = new QSpinBox(EntityProperties);
+        segmentSpinBox->setObjectName(QStringLiteral("segmentSpinBox"));
+        segmentSpinBox->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        segmentSpinBox->setReadOnly(false);
+        segmentSpinBox->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
+        segmentSpinBox->setMaximum(10000);
+        segmentSpinBox->setDisplayIntegerBase(10);
+
+        verticalLayout_4->addWidget(segmentSpinBox);
+
         materialLabel = new QLabel(EntityProperties);
         materialLabel->setObjectName(QStringLiteral("materialLabel"));
 
@@ -132,7 +150,6 @@ public:
         retranslateUi(EntityProperties);
         QObject::connect(buttonBox, SIGNAL(accepted()), EntityProperties, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), EntityProperties, SLOT(reject()));
-        QObject::connect(buttonBox, SIGNAL(clicked(QAbstractButton*)), EntityProperties, SLOT(apply()));
 
         QMetaObject::connectSlotsByName(EntityProperties);
     } // setupUi
@@ -142,6 +159,7 @@ public:
         EntityProperties->setWindowTitle(QApplication::translate("EntityProperties", "Entity Properties", 0));
         EntityNameLabel->setText(QApplication::translate("EntityProperties", "EntityName", 0));
         nodesLabel->setText(QApplication::translate("EntityProperties", "Nodes:", 0));
+        segmentLabel->setText(QApplication::translate("EntityProperties", "Number of segments:", 0));
         materialLabel->setText(QApplication::translate("EntityProperties", "Materials:", 0));
     } // retranslateUi
 

@@ -96,6 +96,9 @@
     <Filter Include="Source Files\ViewController\Dialogs\DimensionDialog">
       <UniqueIdentifier>{bed78d61-fed4-4be0-8fcd-b94ef54770e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DO\MSH">
+      <UniqueIdentifier>{b15d8682-d6e0-4f89-af34-04b46ff6d29c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -365,6 +368,12 @@
     <ClCompile Include="Material.cpp">
       <Filter>Source Files\DO</Filter>
     </ClCompile>
+    <ClCompile Include="LineElement.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleElement.cpp">
+      <Filter>Source Files\DO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.ui">
@@ -477,9 +486,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Element.h">
-      <Filter>Header Files\DO</Filter>
-    </ClInclude>
     <ClInclude Include="ShortcutManager.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
@@ -527,6 +533,15 @@
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>Header Files\DO</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>Header Files\DO\MSH</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleElement.h">
+      <Filter>Header Files\DO\MSH</Filter>
+    </ClInclude>
+    <ClInclude Include="LineElement.h">
+      <Filter>Header Files\DO\MSH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

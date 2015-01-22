@@ -19,6 +19,9 @@ public:
 	EntityCircle(const EntityCircle &e, QObject *parent);
 
 	EntityCircle* clone(QObject *parent) const;
+
+	int segmentNum; //!< Number of segments used to draw and mesh this circle.
+
 	/*!
 		Creates a seed if the entity has less than two seeds. \n
 		If first seed; create seed. \n
@@ -37,8 +40,8 @@ public:
 	/*!
 		Clears the current nodes and edges. 
 		Calculates the circle radius by: \n
-		\f$ dx = Seed_1_x - Seed_2_x \f$ \n
-		\f$ dy = Seed_1_y - Seed_2_y \f$ \n
+		\f$ dx = Seed_{1x} - Seed_{2x} \f$ \n
+		\f$ dy = Seed_{1y} - Seed_{2y} \f$ \n
 
 		Positions for the nodes along the circle is then calculated by: \n
 		\f$ Node(i)_x = getCentre()->x + r * cos{(startAngle + stepSize*i)} \f$, \n 

@@ -2,7 +2,7 @@
 
 Mesh::Mesh(QObject *parent) : Entity(parent) {}
 
-Mesh::Mesh(QString fileName, std::vector<Node> nodes, std::vector<Element> elements, QObject *parent) : Entity(parent)
+Mesh::Mesh(QString fileName, std::vector<Node> nodes, std::vector<Element*> elements, QObject *parent) : Entity(parent)
 {
 	this->fileName = fileName;
 	this->elements = elements;
@@ -25,7 +25,7 @@ Mesh::Mesh(QString fileName, std::vector<Node> nodes, std::vector<Element> eleme
 	this->seeds = compatibleSeeds;
 }
 
-std::vector<Element> Mesh::getElements()
+std::vector<Element*> Mesh::getElements()
 {
 	return elements;
 }
@@ -59,17 +59,34 @@ vtkSmartPointer<vtkPolyData> Mesh::getPolyData()
 		points->InsertPoint(node->id, node->x, node->y, 0);
 	}
 
+	vtkSmartPointer<vtkCellArray> lines = vtkSmartPointer<vtkCellArray>::New();
 	vtkSmartPointer<vtkCellArray> polys = vtkSmartPointer<vtkCellArray>::New();
 
-	for (Element &element : elements)
+	for (Element *element : elements)
 	{
-		polys->InsertNextCell(3);
-		polys->InsertCellPoint((*element.i).id);
-		polys->InsertCellPoint((*element.j).id);
-		polys->InsertCellPoint((*element.k).id);
+		switch (element->type)
+		{
+		case Element::LINE:
+			lines->InsertNextCell((element->nodes.size()));
+			for (Node *node : element->nodes)
+			{
+				lines->InsertCellPoint(node->id);
+			}
+			break;
+		case Element::TRIANGLE:
+			polys->InsertNextCell((element->nodes.size()));
+			for (Node *node : element->nodes)
+			{
+				polys->InsertCellPoint(node->id);
+			}
+			break;
+		default:
+			break;
+		}
 	}
 
 	vtkSmartPointer<vtkPolyData> pd = vtkSmartPointer<vtkPolyData>::New();
+	pd->SetLines(lines);
 	pd->SetPolys(polys);
 	pd->SetPoints(points);
 	

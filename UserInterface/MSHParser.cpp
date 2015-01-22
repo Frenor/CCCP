@@ -24,11 +24,11 @@ Node MSHParser::getNodeAt(int n){
 	return nodes[n];
 }
 
-Element MSHParser::getElementAt(int e){
+Element* MSHParser::getElementAt(int e){
 	return elements[e];
 }
 
-std::vector<Element> MSHParser::getElements()
+std::vector<Element*> MSHParser::getElements()
 {
 	return elements;
 }
@@ -139,55 +139,89 @@ bool MSHParser::readNodes(std::ifstream& in, std::vector<Node> *nodes, int *numb
 	return filePosEqualsLine(in,"$EndNodes");
 }
 
-bool MSHParser::readElements(std::ifstream& in, std::vector<Element> *elements, int *nElement)
+bool MSHParser::readElements(std::ifstream& in, std::vector<Element*> *elements, int *nElement)
 {
 	readInt(in, nElement);
 
 	//Unused
 	int elementNumber, validElements = 0;
-	int type, args, unusedTag;
+	int type, args, originalId, unusedTag;
 	int n1,n2,n3;
 
 	for(int e = 0; e< *nElement; e++)
 	{
 		readInt(in, &elementNumber);
 		readInt(in, &type);
-		if(type != 2)
+
+		LineElement *lElement = new LineElement();
+		TriangleElement *tElement = new TriangleElement();
+
+		switch (type)
 		{
-			getline(in, line);
-		}
-		else
-		{
-			Element element;
-			
+		case 1: //2-node line
+			delete tElement; //unused -> delete.
+
 			readInt(in, &args);
-			readDouble(in, &element.material);
-			for (int i = 0; i < args-1; i++)
+			for (int i = 0; i < args - 1; i++)
 			{
 				readInt(in, &unusedTag);
 			}
+			readInt(in, &originalId);
+
+			readInt(in, &n1);
+			readInt(in, &n2);
+
+			lElement->nodes.push_back(&nodes[n1 - 1]);
+			lElement->nodes.push_back(&nodes[n2 - 1]);
+
+			lElement->x1 = (*lElement->nodes.at(0)).x;
+			lElement->x2 = (*lElement->nodes.at(1)).x;
+
+			lElement->y1 = (*lElement->nodes.at(0)).y;
+			lElement->y2 = (*lElement->nodes.at(1)).y;
+
+			elements->push_back(lElement);
+			validElements++;
+			break;
+		case 2: //3-node triangle.
+			delete lElement; //unused -> delete.
+
+			readInt(in, &args);
+			readDouble(in, &tElement->material);
+			for (int i = 0; i < args - 2; i++)
+			{
+				readInt(in, &unusedTag);
+			}
+			readInt(in, &originalId);
 
 			readInt(in, &n1);
 			readInt(in, &n2);
 			readInt(in, &n3);
 
-			element.i = &nodes[n1-1];
-			element.j = &nodes[n2-1];
-			element.k = &nodes[n3-1];
+			tElement->nodes.push_back(&nodes[n1 - 1]);
+			tElement->nodes.push_back(&nodes[n2 - 1]);
+			tElement->nodes.push_back(&nodes[n3 - 1]);
 
-			element.x1 = (*element.i).x;
-			element.x2 = (*element.j).x;
-			element.x3 = (*element.k).x;
+			tElement->x1 = (*tElement->nodes.at(0)).x;
+			tElement->x2 = (*tElement->nodes.at(1)).x;
+			tElement->x3 = (*tElement->nodes.at(2)).x;
 
-			element.y1 = (*element.i).y;
-			element.y2 = (*element.j).y;
-			element.y3 = (*element.k).y;
+			tElement->y1 = (*tElement->nodes.at(0)).y;
+			tElement->y2 = (*tElement->nodes.at(1)).y;
+			tElement->y3 = (*tElement->nodes.at(2)).y;
 
-			element.calculateArea();		// Efficiency could be improved by doing calculation in Mesh
-			element.calculateAreaCentre();
+			tElement->calculateArea();		// Efficiency could be improved by doing calculation in Mesh
+			tElement->calculateAreaCentre();
 
-			(*elements).push_back(element);
+			elements->push_back(tElement);
 			validElements++;
+			break;
+		default:
+			delete tElement; //unused -> delete.
+			delete lElement; //unused -> delete.
+
+			getline(in, line);
+			break;
 		}
 	}
 	*nElement = validElements;

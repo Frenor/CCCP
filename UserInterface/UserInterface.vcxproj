@@ -378,6 +378,7 @@
     <ClCompile Include="GeoExport.cpp" />
     <ClCompile Include="LeftWidgetPaint.cpp" />
     <ClCompile Include="LeftWidgetResult.cpp" />
+    <ClCompile Include="LineElement.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="Material.cpp" />
@@ -390,6 +391,7 @@
     <ClCompile Include="TreeDrawModel.cpp" />
     <ClCompile Include="TreeItem.cpp" />
     <ClCompile Include="GraphicsView.cpp" />
+    <ClCompile Include="TriangleElement.cpp" />
     <ClCompile Include="VTKControlledSeedWidget.cpp" />
     <ClCompile Include="VTKParser.cpp" />
   </ItemGroup>
@@ -709,7 +711,9 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DTEST_EXPORT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
     </CustomBuild>
+    <ClInclude Include="LineElement.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="TriangleElement.h" />
     <ClInclude Include="VTKParser.h" />
     <CustomBuild Include="CModel.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>

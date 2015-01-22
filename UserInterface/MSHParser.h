@@ -12,6 +12,8 @@
 
 #include "Node.h"
 #include "Element.h"
+#include "TriangleElement.h"
+#include "LineElement.h"
 #include "TestLib.h"
 
 //! A parser for interpreting meshes structured in the ".msh" format
@@ -26,9 +28,9 @@ public:
 	MSHParser(QObject *parent, std::string);
 	
 	/*!
-		\return vector<Element> containing all valid elements parsed from file
+		\return vector<Element*> containing all valid elements parsed from file
 	*/
-	std::vector<Element> getElements();
+	std::vector<Element*> getElements();
 	
 	/*!
 		\return vector<Node> containing all nodes parsed from file
@@ -53,7 +55,7 @@ public:
 	/*!
 		\return Element at the given position
 	*/
-	Element MSHParser::getElementAt(int);
+	Element* MSHParser::getElementAt(int);
 	/*!
 		\return Node at the given position
 	*/
@@ -64,7 +66,7 @@ private:
 	int nNodes;						//!< Number of nodes read from file
 	int nElements;					//!< Number of valid elements read from file
 	std::string line;				//!< Data on line in current position in file
-	std::vector<Element> elements;	//!< Vector containing all elements
+	std::vector<Element*> elements;	//!< Vector containing all elements
 	std::vector<Node> nodes;		//!< Vector containing all nodes
 
 	/*!
@@ -82,7 +84,7 @@ private:
 		Reads the section of file containg element definitions, and creates a vector containing all supported elements. \n
 		Currently, only triangle elements are supported. All other elements is ignored.
 	*/
-	bool readElements(std::ifstream&, std::vector<Element> *, int*);
+	bool readElements(std::ifstream&, std::vector<Element*> *, int*);
 	
 	/*!
 		Reads the section of file containing node definitions and create a vector.

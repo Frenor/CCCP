@@ -4,11 +4,12 @@ EntityCircle::EntityCircle(QObject *parent) : Entity(parent)
 {
 	this->type = Entity::CIRCLE;
 	this->name = "Entity-Circle";
+	this->segmentNum = 100;
 }
 
 EntityCircle::EntityCircle(const EntityCircle &original, QObject *parent) : Entity(original, parent)
 {
-
+	this->segmentNum = original.segmentNum;
 }
 
 EntityCircle* EntityCircle::clone(QObject *parent) const
@@ -53,8 +54,7 @@ void EntityCircle::createCircleBorder()
 {
 	reset();
 
-	int nSteps = 100;
-	double stepSize = 2 * M_PI / nSteps;
+	double stepSize = 2 * M_PI / segmentNum;
 
 	double dx = getEdge()->x - getCentre()->x;
 	double dy = getEdge()->y - getCentre()->y;
@@ -62,7 +62,7 @@ void EntityCircle::createCircleBorder()
 	double r = sqrt(dx*dx + dy*dy);
 	double startAngle = atan2(dy,dx);
 
-	for (int i = 0; i < nSteps; i++)
+	for (int i = 0; i < segmentNum; i++)
 	{
 		double pos[2];
 		pos[0] = getCentre()->x + r * cos(startAngle + stepSize*i);

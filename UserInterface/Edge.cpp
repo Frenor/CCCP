@@ -4,9 +4,15 @@ Edge::Edge(Node *node1, Node *node2)
 {
 	this->n1 = node1;
 	this->n2 = node2;
-	this->width1 = 0.1000;
-	this->width2 = 0.1000;
+	this->width1 = NULL;
+	this->width2 = NULL;
 	this->material = NULL;
+}
+
+Edge::Edge(Node *node1, Node *node2, double w1, double w2) : Edge(node1, node2)
+{
+	this->width1 = w1;
+	this->width2 = w2;
 }
 
 Edge::Edge(const Edge &e)
