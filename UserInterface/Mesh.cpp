@@ -59,18 +59,34 @@ vtkSmartPointer<vtkPolyData> Mesh::getPolyData()
 		points->InsertPoint(node->id, node->x, node->y, 0);
 	}
 
+	vtkSmartPointer<vtkCellArray> lines = vtkSmartPointer<vtkCellArray>::New();
 	vtkSmartPointer<vtkCellArray> polys = vtkSmartPointer<vtkCellArray>::New();
 
 	for (Element *element : elements)
 	{
-		polys->InsertNextCell((element->nodes.size()));
-		for (Node *node : element->nodes)
+		switch (element->type)
 		{
-			polys->InsertCellPoint(node->id);
+		case Element::LINE:
+			lines->InsertNextCell((element->nodes.size()));
+			for (Node *node : element->nodes)
+			{
+				lines->InsertCellPoint(node->id);
+			}
+			break;
+		case Element::TRIANGLE:
+			polys->InsertNextCell((element->nodes.size()));
+			for (Node *node : element->nodes)
+			{
+				polys->InsertCellPoint(node->id);
+			}
+			break;
+		default:
+			break;
 		}
 	}
 
 	vtkSmartPointer<vtkPolyData> pd = vtkSmartPointer<vtkPolyData>::New();
+	pd->SetLines(lines);
 	pd->SetPolys(polys);
 	pd->SetPoints(points);
 	

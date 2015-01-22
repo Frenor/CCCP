@@ -159,8 +159,10 @@ bool MSHParser::readElements(std::ifstream& in, std::vector<Element*> *elements,
 		switch (type)
 		{
 		case 1: //2-node line
+			delete tElement; //unused -> delete.
+
 			readInt(in, &args);
-			for (int i = 0; i < args - 2; i++)
+			for (int i = 0; i < args - 1; i++)
 			{
 				readInt(in, &unusedTag);
 			}
@@ -182,6 +184,8 @@ bool MSHParser::readElements(std::ifstream& in, std::vector<Element*> *elements,
 			validElements++;
 			break;
 		case 2: //3-node triangle.
+			delete lElement; //unused -> delete.
+
 			readInt(in, &args);
 			readDouble(in, &tElement->material);
 			for (int i = 0; i < args - 2; i++)
@@ -213,6 +217,9 @@ bool MSHParser::readElements(std::ifstream& in, std::vector<Element*> *elements,
 			validElements++;
 			break;
 		default:
+			delete tElement; //unused -> delete.
+			delete lElement; //unused -> delete.
+
 			getline(in, line);
 			break;
 		}
