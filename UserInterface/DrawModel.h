@@ -34,6 +34,8 @@ public:
 	explicit DrawModel(QObject *parent);
 	~DrawModel() { std::cout << "DELETED: DrawModel" << std::endl; materials.clear(); }
 
+	double snapPrecision = 0.05;	//!< How close should two nodes be to "collide"? Triggers reuse of nodes
+
 	Entity *activeEntity;			//!< Reference to the selected entity. It is active for input. NULL if none selected
 	bool activeEntityFinalized;		//!< State of active entity. The seed widget is shown if false.
 
@@ -101,6 +103,15 @@ public:
 	*/
 	int findMaterialId(Material*);
 
+	/*!
+		Finds if there are any Node close enough to the given position, by a set threshold value
+		\return Node that was found or NULL if no Node within range
+	*/
+	Node* findCloseNode(double[]);
+	/*!
+		Adds all nodes from the first entity to the second entity and deletes the first entity
+	*/
+	void mergeEntities(Entity*, Entity*);
 public slots:
 	/*!
 		Called whenever UI mode changes.

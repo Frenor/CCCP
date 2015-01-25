@@ -40,6 +40,7 @@ void DrawController::startSeedWidget()
 	seedRep->SetHandleRepresentation(handleRep);
 
 	scbk->SetRepresentation(seedRep);
+	scbk->setModel(model);
 
 	widget->setStartInteraction();
 	widget->SetRepresentation(seedRep);

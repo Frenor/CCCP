@@ -36,6 +36,11 @@ public:
 	void createNode(double pos[], int);
 	
 	/*!
+		Adds an existing node to the entity and emits entityChanged
+	*/
+	void useSnapNode(Node*);
+
+	/*!
 		Creates an edge between the two given, and adds the edge to the entity.
 	*/
 	void createEdge(Node*, Node*);

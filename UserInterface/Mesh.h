@@ -29,8 +29,9 @@ public:
 
 	Entity* clone(QObject *parent);
 
-	void changeNode(double pos[], int handle){}
-	void createNode(double pos[], int handle){}
+	void changeNode(double pos[], int handle){}	//!< Implemented and ignored entity functionality
+	void createNode(double pos[], int handle){}	//!< Implemented and ignored entity functionality
+	void useSnapNode(Node*){};					//!< Implemented and ignored entity functionality
 	std::vector<Node*> getSeeds(){return seeds; }
 	std::vector<Element*> getElements();
 	//Entity* getEntity();

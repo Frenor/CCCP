@@ -50,6 +50,14 @@ void EntityPoly::createNode(double pos[], int handle)
 	emit entityChanged(this);
 }
 
+void EntityPoly::useSnapNode(Node *snapTo)
+{
+	nodes.push_back(snapTo);
+	emit entityChanged(this);
+	setIsFinalized(true);
+	emit entityFinalized();
+}
+
 std::vector<Node*> EntityPoly::getSeeds()
 {
 	std::cout << nodes.size() << std::endl;

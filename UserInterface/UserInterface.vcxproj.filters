@@ -99,6 +99,9 @@
     <Filter Include="Header Files\DO\MSH">
       <UniqueIdentifier>{b15d8682-d6e0-4f89-af34-04b46ff6d29c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DO\Entity">
+      <UniqueIdentifier>{c2da9193-d8ee-4dea-9b68-a98d267846c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -388,19 +391,10 @@
     <CustomBuild Include="mainwindow.h">
       <Filter>Header Files\ViewController</Filter>
     </CustomBuild>
-    <CustomBuild Include="Entity.h">
-      <Filter>Header Files\DO</Filter>
-    </CustomBuild>
     <CustomBuild Include="CModel.h">
       <Filter>Header Files\Models</Filter>
     </CustomBuild>
     <CustomBuild Include="Node.h">
-      <Filter>Header Files\DO</Filter>
-    </CustomBuild>
-    <CustomBuild Include="EntityCircle.h">
-      <Filter>Header Files\DO</Filter>
-    </CustomBuild>
-    <CustomBuild Include="EntityPoly.h">
       <Filter>Header Files\DO</Filter>
     </CustomBuild>
     <CustomBuild Include="TreeDrawModel.h">
@@ -411,9 +405,6 @@
     </CustomBuild>
     <CustomBuild Include="MSHParser.h">
       <Filter>Header Files\IO</Filter>
-    </CustomBuild>
-    <CustomBuild Include="EntityBRep.h">
-      <Filter>Header Files\DO</Filter>
     </CustomBuild>
     <CustomBuild Include="EntityOperation.h">
       <Filter>Header Files\Utilities</Filter>
@@ -448,9 +439,6 @@
     <CustomBuild Include="ExternalProcessHandler.h">
       <Filter>Header Files\Utilities</Filter>
     </CustomBuild>
-    <CustomBuild Include="Mesh.h">
-      <Filter>Header Files\DO</Filter>
-    </CustomBuild>
     <CustomBuild Include="DrawViewMenu.h">
       <Filter>Header Files\ViewController\ContextMenus</Filter>
     </CustomBuild>
@@ -483,6 +471,21 @@
     </CustomBuild>
     <CustomBuild Include="EntityGraphicModel.h">
       <Filter>Header Files\Models</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Entity.h">
+      <Filter>Header Files\DO\Entity</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityBRep.h">
+      <Filter>Header Files\DO\Entity</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityCircle.h">
+      <Filter>Header Files\DO\Entity</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EntityPoly.h">
+      <Filter>Header Files\DO\Entity</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Mesh.h">
+      <Filter>Header Files\DO\Entity</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

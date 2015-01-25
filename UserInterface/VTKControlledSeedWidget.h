@@ -45,7 +45,15 @@ public:
 			if(this->entity)
 			{
 				this->SeedRepresentation->GetHandleRepresentation(this->SeedRepresentation->GetActiveHandle())->GetWorldPosition(pos);
-				this->entity->createNode(pos, this->SeedRepresentation->GetActiveHandle());
+				Node *snapTo = model->findCloseNode(pos);
+				if (snapTo)
+				{
+					this->entity->useSnapNode(snapTo);
+				}
+				else
+				{
+					this->entity->createNode(pos, this->SeedRepresentation->GetActiveHandle());
+				}
 			}
 		}
 		if (event == vtkCommand::InteractionEvent)	
@@ -71,10 +79,13 @@ public:
 	*/
 	void setEntity(Entity *entity) { this->entity = entity;	}
 
+	void setModel(DrawModel *model) { this->model = model; }
+
 	void SetRepresentation(vtkSmartPointer<vtkSeedRepresentation> rep) { this->SeedRepresentation = rep; }
 private:
 	vtkSmartPointer<vtkSeedRepresentation> SeedRepresentation;
 	Entity *entity;
+	DrawModel *model;
 };
 
 //! Wrapper for the vtkSeedWidget, providing extended control of the seed widget.

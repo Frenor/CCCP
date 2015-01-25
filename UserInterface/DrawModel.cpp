@@ -243,3 +243,24 @@ int DrawModel::findMaterialId(Material *mat)
 	}
 	return i;
 }
+
+Node* DrawModel::findCloseNode(double pos[])
+{
+	for each (Entity *entity in entities)
+	{
+		for each (Node *node in entity->nodes)
+		{
+			std::cout << "Searching for close nodes" << std::endl;
+			if (abs(node->x - pos[0]) < snapPrecision || abs(node->y - pos[1]) < snapPrecision)
+			{
+				return node;
+			}
+		}
+	}
+	return NULL;
+}
+
+void DrawModel::mergeEntities(Entity*, Entity*)
+{
+
+}

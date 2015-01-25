@@ -262,7 +262,7 @@ void Entity::addNode(double pos[], int handle)
 
 	nodes.push_back(node);
 
-	if(lastSelectedNode)
+	if (lastSelectedNode)
 	{
 		createEdge(lastSelectedNode, node);
 	}

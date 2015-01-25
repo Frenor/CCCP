@@ -86,6 +86,12 @@ public:
 	*/
 	virtual void createNode(double pos[], int) = 0;
 
+	/*!
+		Abstract function required by all entities in order to be created. When an empty entity is created,
+		the entity is set as the seed widget's callback and this method is called.
+	*/
+	virtual void useSnapNode(Node*) = 0;
+
 	/*! 
 		Abstract function required by all entities in order to be drawn in the seed widget. 
 		The seeds are a sub set of nodes which can be moved.

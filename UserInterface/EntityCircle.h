@@ -65,6 +65,8 @@ public:
 	*/
 	double getRadius();
 
+	void useSnapNode(Node*){};			//!< Implemented and ignored entity functionality
+
 private:
 	/*!
 		Deletes the node and edge data making the circle shape. \n
