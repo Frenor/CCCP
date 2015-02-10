@@ -19,10 +19,10 @@ public:
 	Material(std::string);
 	~Material();
 
-	bool isSelectable;
-	bool isBase;
-	QString name;
-	int baseColorRGB[3];
+	bool isSelectable;		//!< Should this be added to the list of selectable materials
+	bool isBase;			//!< This material is not compunded by any oher materials, same as component.size = 0
+	QString name;			//!< Identifier used in lists
+	int baseColorRGB[3];	//!< Base color used for quick identification in lists, and calculation of composit colors. Format: [255,255,255]
 
 	friend bool operator== (Material m1, Material m2);
 

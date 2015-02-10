@@ -33,6 +33,12 @@ public:
 	Entity(const Entity &, QObject *parent = 0);
 	~Entity();
 
+	/*!
+		Abstract function required by all entities in order to be displayed
+		by the EntityDisplayController. Takes in the QObject you want it to
+		be the child of.
+		\return pointer an identical version of it self on the heap
+	*/
 	virtual Entity* clone(QObject *parent = 0) const = 0;
 	//Entity* duplicate(Entity const &, QObject*);
 
