@@ -2,17 +2,11 @@ Konfigurasjon av programvare for bruker og utvikler
 ------------------------------------------------------
 
 For å kjøre programmet:
-Den enkleste måten å innstallere programmet på er å bruke innstallasjonsskript som ligger i
-Install/Install-Windows.bat
+Last ned alle nødvendige biblioteker her:
+https://www.dropbox.com/s/lt50lg5b1vkqle4/CCCP-Libraries.rar?dl=0
 
-Skriptet laster ned alle avhengighetene - bortsett fra solver.exe. 
-Brukeren trenger da kun å kopiere filene til samme mappe som programmet ligger, 
-eller å legge adressen til mappen "dependencies" på slutten av PATH-systemvariabelen for å kjøre programmet.
-
-Se link for hvordan man legger til PATH-variabel: http://www.computerhope.com/issues/ch000549.htm
+Denne mappen må dekomprimeres og ha filbanen "C:/CCCP-Libraries/
+I tillegg må "Qt 64bit OpenGL" være installert på maskinen.
+http://download.qt-project.org/official_releases/qt/5.4/5.4.0/qt-opensource-windows-x86-msvc2013_64_opengl-5.4.0.exe
 
 -------------------------------
-
-Alternativt til skript finnes de nødvendige rammeverkene her:
-BRUKER: http://www.jottacloud.com/p/bjorask/8836952f16084226a06f0ac59fcaebe0
-UTVIKLER: http://www.jottacloud.com/p/bjorask/7a29d3e8057d4fbf98bab2e77c80acd1

@@ -50,7 +50,17 @@ void EntityBRep::updatePolygon()
 		updateNodesAndEdges();
 	}
 	
-	updateActor(getPolyData());
+	switch (this->crossectionType)
+	{
+	case Entity::MASSIVE:
+		updateActor(getPolyData());
+		break;
+	case Entity::THINWALLED:
+		updateActor(getPolyDataWalled());
+		break;
+	default:
+		break;
+	}
 	updateHoleActors();
 }
 
@@ -81,6 +91,7 @@ void EntityBRep::updateResultEntities()
 		}else{
 			resultHoleEntities.push_back(entity);
 		}
+		entity->setIsFinalized(true);
 	}
 
 	updateRequired = false;
