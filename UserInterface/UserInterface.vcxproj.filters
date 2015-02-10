@@ -484,6 +484,9 @@
     <CustomBuild Include="EntityGraphicModel.h">
       <Filter>Header Files\Models</Filter>
     </CustomBuild>
+    <CustomBuild Include="materialDesigner.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShortcutManager.h">
@@ -542,6 +545,9 @@
     </ClInclude>
     <ClInclude Include="LineElement.h">
       <Filter>Header Files\DO\MSH</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_materialDesigner.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
