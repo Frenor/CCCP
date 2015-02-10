@@ -248,12 +248,15 @@ Node* DrawModel::findCloseNode(double pos[])
 {
 	for each (Entity *entity in entities)
 	{
-		for each (Node *node in entity->nodes)
-		{
-			std::cout << "Searching for close nodes" << std::endl;
-			if (abs(node->x - pos[0]) < snapPrecision || abs(node->y - pos[1]) < snapPrecision)
+		if (entity != activeEntity) {
+			for each (Node *node in entity->nodes)
 			{
-				return node;
+				std::cout << "Searching for close nodes" << std::endl;
+				if (abs(node->x - pos[0]) < snapPrecision || abs(node->y - pos[1]) < snapPrecision)
+				{
+					std::cout << "Close node found!" << std::endl;
+					return node;
+				}
 			}
 		}
 	}

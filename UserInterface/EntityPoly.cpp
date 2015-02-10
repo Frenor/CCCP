@@ -25,10 +25,13 @@ void EntityPoly::changeNode(double pos[], int handle)
 	clickNode(handle);		//vtkSeedWidget does not fire it's event on mousePress
 	for each (Node *node in getSeeds())
 	{
-		if(node->handle == handle)
+		for each (int nodeHandle in node->handle)
 		{
-			node->setPosition(pos);
-			break;
+			if (nodeHandle == handle)
+			{
+				node->setPosition(pos);
+				break;
+			}
 		}
 	}
 	emit entityChanged(this);
@@ -50,8 +53,9 @@ void EntityPoly::createNode(double pos[], int handle)
 	emit entityChanged(this);
 }
 
-void EntityPoly::useSnapNode(Node *snapTo)
+void EntityPoly::useSnapNode(Node *snapTo, int handle)
 {
+	snapTo->addHandle(handle);
 	nodes.push_back(snapTo);
 	emit entityChanged(this);
 	setIsFinalized(true);

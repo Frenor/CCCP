@@ -257,7 +257,7 @@ void Entity::addNode(double pos[], int handle)
 {
 	Node *node = new Node();
 	node->setPosition(pos);
-	node->handle = handle;
+	node->handle.at(0)= handle;
 	node->id = nodes.size();
 
 	nodes.push_back(node);
@@ -303,7 +303,7 @@ void Entity::createSeed(double pos[], int handle)
 {
 	Node *node = new Node();
 	node->setPosition(pos);
-	node->handle = handle;
+	node->handle.at(0) = handle;
 	node->id = nodes.size();
 	seeds.push_back(node);
 }

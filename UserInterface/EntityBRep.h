@@ -54,7 +54,7 @@ public:
 
 	void changeNode(double pos[], int){};	//!< Implemented and ignored entity functionality
 	void createNode(double pos[], int){};	//!< Implemented and ignored entity functionality
-	void useSnapNode(Node*){};				//!< Implemented and ignored entity functionality
+	void useSnapNode(Node*, int){};				//!< Implemented and ignored entity functionality
 
 	/*!
 		If seeds from childEntities are returned here, the seed references will point to this entity.

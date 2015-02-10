@@ -90,7 +90,7 @@ public:
 		Abstract function required by all entities in order to be created. When an empty entity is created,
 		the entity is set as the seed widget's callback and this method is called.
 	*/
-	virtual void useSnapNode(Node*) = 0;
+	virtual void useSnapNode(Node*, int) = 0;
 
 	/*! 
 		Abstract function required by all entities in order to be drawn in the seed widget. 

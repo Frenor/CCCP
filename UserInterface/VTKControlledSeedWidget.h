@@ -48,7 +48,7 @@ public:
 				Node *snapTo = model->findCloseNode(pos);
 				if (snapTo)
 				{
-					this->entity->useSnapNode(snapTo);
+					this->entity->useSnapNode(snapTo, this->SeedRepresentation->GetActiveHandle());
 				}
 				else
 				{
@@ -65,7 +65,10 @@ public:
 				this->SeedRepresentation->GetHandleRepresentation(handle)->GetWorldPosition(pos);
 				//std::cout << "Interacting with seed : " << handle << ", Pos: " << pos[0] << " , " << pos[1] << " , " << pos[2] << std::endl;
 
-				this->entity->changeNode(pos, handle);
+				if (handle >= 0)
+				{
+					this->entity->changeNode(pos, handle);
+				}
 			}
 		}
 

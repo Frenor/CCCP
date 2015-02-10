@@ -88,10 +88,13 @@ void EntityCircle::changeNode(double pos[], int handle)
 	//std::cout << "nSeedNodes: " << getSeeds().size() << std::endl;
 	for each (Node *node in getSeeds())
 	{
-		if(node->handle == handle)
+		for each (int nodeHandle in node->handle)
 		{
-			node->setPosition(pos);
-			break;
+			if (nodeHandle == handle)
+			{
+				node->setPosition(pos);
+				break;
+			}
 		}
 	}
 

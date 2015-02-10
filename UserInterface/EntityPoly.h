@@ -38,7 +38,7 @@ public:
 	/*!
 		Adds an existing node to the entity and emits entityChanged
 	*/
-	void useSnapNode(Node*);
+	void useSnapNode(Node*, int);
 
 	/*!
 		Creates an edge between the two given, and adds the edge to the entity.

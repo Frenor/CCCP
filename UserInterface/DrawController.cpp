@@ -139,6 +139,7 @@ void DrawController::drawSurfaces()
 		{
 			createSurface(entity);
 		}
+	
 	}
 }
 

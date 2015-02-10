@@ -65,7 +65,7 @@ public:
 	*/
 	double getRadius();
 
-	void useSnapNode(Node*){};			//!< Implemented and ignored entity functionality
+	void useSnapNode(Node*, int){};			//!< Implemented and ignored entity functionality
 
 private:
 	/*!
